@@ -1,7 +1,18 @@
-﻿namespace IntelliHouse2000App.Helpers;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 
-public static class DependencyInjectionScannerHelper
+namespace IntelliHouse2000App.Helpers;
+
+public static class DependencyInjectionScanner
 {
+    public static void RegisterDependencies(this MauiAppBuilder builder)
+    {
+        builder.Services.AddByNamespace("IntelliHouse2000App.Repository");
+        builder.Services.AddByNamespace("IntelliHouse2000App.Services");
+        builder.Services.AddByNamespace("IntelliHouse2000App.ViewModels");
+        builder.Services.AddByNamespace("IntelliHouse2000App.Views");
+    }
+    
     /// <summary>
     /// Recursively adds all classes in namespace. Default lifetime is transient. Single class can be overwritten with [LifeTime(ServiceLifetime.Singleton)]  
     /// </summary>
@@ -24,23 +35,21 @@ public static class DependencyInjectionScannerHelper
     {
         List<Type> serviceTypes = GetValidTypesInNamespace(@namespace);
 
-        List<Type> interfaces = serviceTypes.Where(t => t.IsInterface)
-                                            .ToList();
+        List<ServiceDescriptor> services = serviceTypes.Select(service =>
+        {
+            Type implementationType = service.IsInterface
+                                      ? serviceTypes.FirstOrDefault(t => $"I{t.Name}" == service.Name)
+                                      : service;
 
-        List<ServiceDescriptor> services = interfaces.Select(i =>
-                                                     {
-                                                         Type implementationType = serviceTypes.FirstOrDefault(t => $"I{t.Name}" == i.Name);
+            ServiceLifetime lifetime = defaultLifetime;
 
-                                                         ServiceLifetime lifetime = defaultLifetime;
+            if (implementationType.HasAttribute<LifeTimeAttribute>())
+            {
+                lifetime = implementationType.GetCustomAttribute<LifeTimeAttribute>()!.Lifetime;
+            }
 
-                                                         if (implementationType.HasAttribute<LifeTimeAttribute>())
-                                                         {
-                                                             lifetime = implementationType.GetCustomAttribute<LifeTimeAttribute>()!.Lifetime;
-                                                         }
-
-                                                         return new ServiceDescriptor(i, implementationType, lifetime);
-                                                     })
-                                                     .ToList();
+            return new ServiceDescriptor(service, implementationType, lifetime);
+        }).ToList();
 
         services = Validate(services);
 
@@ -68,8 +77,9 @@ public static class DependencyInjectionScannerHelper
     }
     private static List<Type> GetClassesAndInterfacesByNamespace(string @namespace)
     {
-        return Assembly.GetAssembly(typeof(AutoDependencyInjectionHelper))!
+        return Assembly.GetAssembly(typeof(DependencyInjectionScanner))!
                        .GetTypes()
+                       .Where(t => t != null && t.Namespace != null)
                        .Where(t => t.Namespace!.StartsWith(@namespace) && (t.IsInterface || t.IsClass))
                        .ToList();
     }
