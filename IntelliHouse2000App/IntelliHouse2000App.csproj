@@ -52,14 +52,21 @@
 	  <None Remove="Models\Climate\Cilamte.txt" />
 	  <None Remove="Services\Climate\Cilamte.txt" />
 	  <None Remove="ViewModels\Climate\Cilamte.txt" />
-	  <None Remove="Views\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Include="Models\Climate\Cilamte.txt" />
 	  <Compile Include="Services\Climate\Cilamte.txt" />
 	  <Compile Include="ViewModels\Climate\Cilamte.txt" />
-	  <Compile Include="Views\Climate\Cilamte.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Alarm\Alarm.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\Climate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

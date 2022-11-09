@@ -1,4 +1,6 @@
-﻿namespace IntelliHouse2000App;
+﻿using IntelliHouse2000App.Views;
+
+namespace IntelliHouse2000App;
 
 public static class MauiProgram
 {
@@ -13,6 +15,11 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<Alarm>();
+        builder.Services.AddTransient<Climate>();
+
+
+        return builder.Build();
 	}
 }

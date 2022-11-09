@@ -5,11 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:IntelliHouse2000App"
     xmlns:view="clr-namespace:IntelliHouse2000App.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
+    <FlyoutItem></FlyoutItem>
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate view:MainPage}"
-        Route="MainPage" />
+            Title="Home"
+            ContentTemplate="{DataTemplate view:MainPage}"/>
+
+    <ShellContent 
+            Title="Alarm"
+            ContentTemplate="{DataTemplate view:Alarm}" />
+
+    <ShellContent 
+            Title="Climate"
+            ContentTemplate="{DataTemplate view:Climate}" />
 
 </Shell>
