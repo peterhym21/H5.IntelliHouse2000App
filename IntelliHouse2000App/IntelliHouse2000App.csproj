@@ -70,7 +70,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MQTTnet" Version="4.1.2.350" />
+	  <PackageReference Include="MQTTnet" Version="3.1.1" />
+	  <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.1" />
 	</ItemGroup>
 
 </Project>
