@@ -35,22 +35,27 @@ public static class DependencyInjectionScanner
     {
         List<Type> serviceTypes = GetValidTypesInNamespace(@namespace);
 
-        List<ServiceDescriptor> services = serviceTypes.Select(service =>
+        List<ServiceDescriptor> services = new(); 
+        foreach (Type serviceType in serviceTypes)
         {
-            Type implementationType = service.IsInterface
-                                      ? serviceTypes.FirstOrDefault(t => $"I{t.Name}" == service.Name)
-                                      : service;
+            Type implementationType = serviceType;
+
+            if (serviceType.IsInterface)
+            {
+                implementationType = serviceTypes.FirstOrDefault(t => $"I{t.Name}" == serviceType.Name);
+            }
+            else if (serviceTypes.Any(s => $"I{serviceType.Name}" == s.Name))
+            {
+                continue;
+            }
 
             ServiceLifetime lifetime = defaultLifetime;
 
-            if (implementationType.HasAttribute<LifeTimeAttribute>())
-            {
-                lifetime = implementationType.GetCustomAttribute<LifeTimeAttribute>()!.Lifetime;
-            }
+            if (implementationType.HasAttribute<LifeTimeAttribute>()) lifetime = implementationType.GetCustomAttribute<LifeTimeAttribute>()!.Lifetime;
 
-            return new ServiceDescriptor(service, implementationType, lifetime);
-        }).ToList();
-
+            services.Add(new ServiceDescriptor(serviceType, implementationType, lifetime));
+        }
+        
         services = Validate(services);
 
         return services;
