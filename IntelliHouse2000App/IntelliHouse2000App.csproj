@@ -69,4 +69,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="MQTTnet" Version="4.1.2.350" />
+	</ItemGroup>
+
 </Project>
