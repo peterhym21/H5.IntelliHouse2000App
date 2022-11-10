@@ -59,7 +59,6 @@
 	  <Compile Include="Models\Climate\Cilamte.txt" />
 	  <Compile Include="Services\Climate\Cilamte.txt" />
 	  <Compile Include="ViewModels\Climate\Cilamte.txt" />
-	  <Compile Include="Views\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
