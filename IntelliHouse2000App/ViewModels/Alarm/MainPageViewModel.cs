@@ -1,31 +1,32 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using IntelliHouse2000App.Services;
 
 namespace IntelliHouse2000App.ViewModels;
 
 public partial class MainPageViewModel : ObservableObject
 {
-    public MainPageViewModel()
+    private readonly IAlarmService _alarmService;
+    public MainPageViewModel(IAlarmService alarmService)
     {
-        
+        _alarmService = alarmService;
     }
     
     [RelayCommand]
     public void Disarm()
     {
-        Shell.Current.DisplayAlert("Test", "Imagine the alarm was disarmed", "cancel");
-        
+        _alarmService.SetArmed(ArmedState.Disarmed);
     }
     
     [RelayCommand]
     public void PartiallyArm()
     {
-        Shell.Current.DisplayAlert("Test", "Imagine the alarm was partially armed", "cancel");
+        _alarmService.SetArmed(ArmedState.PartiallyArmed);
     }
     
     [RelayCommand]
     public void FullyArm()
     {
-        Shell.Current.DisplayAlert("Test", "Imagine the alarm was fully armed", "cancel");
+        _alarmService.SetArmed(ArmedState.FullyArmed);
     }
 }
