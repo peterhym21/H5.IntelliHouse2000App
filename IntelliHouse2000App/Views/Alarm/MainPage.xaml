@@ -5,19 +5,27 @@
              x:DataType="viewModels:MainPageViewModel"
              x:Class="IntelliHouse2000App.Views.MainPage">
 
-    <Grid RowDefinitions="*, *, 2*, 2*" ColumnDefinitions="*">
+    <Grid RowDefinitions="1*, *, 2*, 2*" ColumnDefinitions="*, 2* ,*">
         <Label Text="Welcome"
+               Grid.Column="1"
+               Margin="0,50,0,0"
                HorizontalOptions="Center"
-               FontSize="20"></Label>
-        
-        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="20">
+               FontSize="30"></Label>
+
+        <Grid ColumnDefinitions="*, *, *"
+              Grid.Column="0" Grid.ColumnSpan="3"
+              ColumnSpacing="20" Margin="20,0"
+              Grid.Row="1">
             <Button Text="Disarm"
+                    Grid.Column="0"
                     Command="{Binding DisarmCommand}"></Button>
             <Button Text="Partially arm"
+                    Grid.Column="1"
                     Command="{Binding PartiallyArmCommand}"></Button>
             <Button Text="Fully arm"
+                    Grid.Column="2"
                     Command="{Binding FullyArmCommand}"></Button>
-        </HorizontalStackLayout>
+        </Grid>
     </Grid>
 
 </ContentPage>
