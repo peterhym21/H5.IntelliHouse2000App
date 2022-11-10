@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelliHouse2000App.Views.ClimateBedroom"
-             Title="ClimateBedroom">
+             Title="Climate Bedroom">
 
     <VerticalStackLayout Spacing="10">
         <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
