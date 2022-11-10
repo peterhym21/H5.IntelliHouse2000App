@@ -9,3 +9,8 @@
 - [ ] Kan vise seneste data, hvis nettet afbrydes. 
 - [ ] Er robust overfor ustabil netforbindelse.
 - [ ] Projektet afleveres i Github med en god Readme-fil og præsenteres for klassen. Readme-filen markerer også hvilke mål, der er nået.
+
+### Optionelle krav
+
+- [ ] Mulighed for at kunne vælge forskellige målesessions, f.eks. svarende til forskellige rum i huset.
+- [ ] Man kan også ønske sig en alarm, der adviserer om at temperaturen er kommet udenfor en given grænse.
