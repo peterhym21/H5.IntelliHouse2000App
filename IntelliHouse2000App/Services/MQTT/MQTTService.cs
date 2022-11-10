@@ -12,8 +12,6 @@ namespace IntelliHouse2000App.Services;
 [LifeTime(ServiceLifetime.Singleton)]
 public class MqttService : IMQTTService
 {
-    // private static MqttService Instance { get; set; }
-    // public static MqttService MqttClient => Instance ??= new MqttService();
     private IMqttClient _mqttClient;
     private IMqttClientOptions _mqttClientOptions;
 
