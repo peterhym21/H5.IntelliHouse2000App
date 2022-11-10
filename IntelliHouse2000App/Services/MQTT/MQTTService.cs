@@ -12,8 +12,8 @@ namespace IntelliHouse2000App.Services;
 [LifeTime(ServiceLifetime.Singleton)]
 public class MqttService : IMQTTService
 {
-    private static MqttService Instance { get; set; }
-    public static MqttService MqttClient => Instance ??= new MqttService();
+    // private static MqttService Instance { get; set; }
+    // public static MqttService MqttClient => Instance ??= new MqttService();
     private IMqttClient _mqttClient;
     private IMqttClientOptions _mqttClientOptions;
 
@@ -23,7 +23,20 @@ public class MqttService : IMQTTService
 
     public MqttService()
     {
-        
+        Initialize(new MqttClientOptionsBuilder().WithClientId("MQTT_APP")
+            .WithCleanSession(true)
+            .WithTcpServer(Constants.MqttBaseUrl)
+            .WithCredentials(new MqttClientCredentials
+            {
+                Username = Constants.mqttUser,
+                Password = Encoding.UTF8.GetBytes(Constants.mqttPass)
+            })
+            .Build());
+        // MqttClient.Connected += MqttClient_Connected;
+        // MqttClient.MessageReceived += MqttClient_MessageReceived;
+        // MqttClient.Disconnected += MqttClient_Disconnected;
+        // await MqttClient.Subscribe("home/system/log");
+        Connect().Wait();
     }
     public bool IsConnected()
     {
@@ -117,7 +130,7 @@ public class MqttService : IMQTTService
     {
         try
         {
-            // await Connect();
+            await Connect();
             await _mqttClient.PublishAsync(message);
         }
         catch (Exception ex)
