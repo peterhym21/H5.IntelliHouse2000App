@@ -42,9 +42,11 @@ public static class DependencyInjectionScanner
 
             if (serviceType.IsInterface)
             {
-                implementationType = serviceTypes.FirstOrDefault(t => $"I{t.Name}" == serviceType.Name);
+                implementationType = serviceTypes.FirstOrDefault(t => string.Equals($"I{t.Name}", serviceType.Name, StringComparison.CurrentCultureIgnoreCase));
+
+                if (implementationType == null) throw new Exception($"Could not find any implementation of interface {serviceType.Name}. To ignore interface add [IgnoreService] attribute");
             }
-            else if (serviceTypes.Any(s => $"I{serviceType.Name}" == s.Name))
+            else if (serviceTypes.Any(s => string.Equals($"I{serviceType.Name}", s.Name, StringComparison.CurrentCultureIgnoreCase)))
             {
                 continue;
             }
