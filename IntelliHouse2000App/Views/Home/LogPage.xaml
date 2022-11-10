@@ -11,18 +11,20 @@
         <CollectionView ItemsSource="{Binding LogMessages}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:LogMessage">
-                    <Grid Padding="10">
-                        <Frame HeightRequest="125">
+                    <Grid Padding="5">
+                        <Frame>
                             <Grid Padding="0" ColumnDefinitions="*">
                                 <VerticalStackLayout
                                     Grid.Column="1"
-                                    Padding="10">
-                                    <Label Text="{Binding Id}" />
-                                    <Label Text="{Binding  Client}" />
-                                    <Label Text="{Binding   Topic}" />
-                                    <Label Text="{Binding  Timestamp}" />
-                                    <Label Text="{Binding Message}" />
-                                    
+                                    Padding="2">
+                                    <HorizontalStackLayout><Label Text="Afsender: " /><Label Text="{Binding  Client}" /></HorizontalStackLayout>
+                                    <Label Text="{Binding Message, StringFormat='Besked: {0:F0}'}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding  Timestamp}"
+                                           HorizontalOptions="End"
+                                           HorizontalTextAlignment="End"/>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>
