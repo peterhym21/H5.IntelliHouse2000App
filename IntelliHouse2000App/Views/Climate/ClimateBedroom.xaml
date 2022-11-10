@@ -58,22 +58,6 @@
             </Frame>
         </Grid>
 
-        <Grid ColumnDefinitions="*" ColumnSpacing="5">
-            <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
-                <VerticalStackLayout Padding="10">
-                    <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Set Maximum airquality in PPM:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Humid}" />-->
-                    <!--<Button Text="Set Airquality" 
-                        Command="{Binding GetMonkeysCommand}"
-                        IsEnabled="{Binding IsNotBusy}"
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Style="{StaticResource ButtonOutline}"
-                        Margin="8"/>-->
-                </VerticalStackLayout>
-            </Frame>
-        </Grid>
-
     </VerticalStackLayout>
 
 </ContentPage>
