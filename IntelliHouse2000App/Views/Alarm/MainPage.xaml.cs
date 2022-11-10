@@ -1,15 +1,16 @@
 ﻿using IntelliHouse2000App.Helpers;
+using IntelliHouse2000App.ViewModels;
 
 namespace IntelliHouse2000App.Views;
 
 [LifeTime(ServiceLifetime.Singleton)]
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
-	public MainPage()
+	public MainPage(MainPageViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
+
 }
 

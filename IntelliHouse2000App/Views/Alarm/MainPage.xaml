@@ -1,39 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:IntelliHouse2000App.ViewModels"
+             x:DataType="viewModels:MainPageViewModel"
              x:Class="IntelliHouse2000App.Views.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+    <Grid RowDefinitions="*, *, 2*, 2*" ColumnDefinitions="*">
+        <Label Text="Welcome"
+               HorizontalOptions="Center"
+               FontSize="20"></Label>
+        
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="20">
+            <Button Text="Alarm Off"></Button>
+            <Button Text="Partially arm"></Button>
+            <Button Text="Fully arm"></Button>
+        </HorizontalStackLayout>
+    </Grid>
 
 </ContentPage>
