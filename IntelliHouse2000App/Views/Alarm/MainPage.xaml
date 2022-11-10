@@ -1,39 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:IntelliHouse2000App.ViewModels"
+             x:DataType="viewModels:MainPageViewModel"
              x:Class="IntelliHouse2000App.Views.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid RowDefinitions="1*, *, 2*, 2*" ColumnDefinitions="*, 2* ,*">
+        <Label Text="Welcome"
+               Grid.Column="1"
+               Margin="0,50,0,0"
+               HorizontalOptions="Center"
+               FontSize="30"></Label>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <Grid ColumnDefinitions="*, *, *"
+              Grid.Column="0" Grid.ColumnSpan="3"
+              ColumnSpacing="20" Margin="20,0"
+              Grid.Row="1">
+            <Button Text="Disarm"
+                    Grid.Column="0"
+                    Command="{Binding DisarmCommand}"></Button>
+            <Button Text="Partially arm"
+                    Grid.Column="1"
+                    Command="{Binding PartiallyArmCommand}"></Button>
+            <Button Text="Fully arm"
+                    Grid.Column="2"
+                    Command="{Binding FullyArmCommand}"></Button>
+        </Grid>
+    </Grid>
 
 </ContentPage>
