@@ -16,19 +16,30 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		
 		Connect();
 	}
-	
+
 	private async void Connect()
 	{
 		MqttService.MqttClient.Initialize(new MqttClientOptionsBuilder().WithClientId("MQTT_APP")
 			.WithCleanSession(true)
 			.WithTcpServer(Constants.MqttBaseUrl)
+			.WithCredentials(new MqttClientCredentials
+			{
+				Username = Constants.mqttUser,
+				Password = Encoding.UTF8.GetBytes(Constants.mqttPass)
+			})
 			.Build());
 		MqttService.MqttClient.Connected += MqttClient_Connected;
 		MqttService.MqttClient.MessageReceived += MqttClient_MessageReceived;
 		MqttService.MqttClient.Disconnected += MqttClient_Disconnected;
-		await MqttService.MqttClient.Subscribe($"{Constants.MqttBaseUrl}home/system/log");
+		await MqttService.MqttClient.Subscribe("home/system/log");
 		await MqttService.MqttClient.Connect();
 	}
 	
@@ -61,7 +72,7 @@ public partial class MainPage : ContentPage
 		if (!string.IsNullOrWhiteSpace(message))
 			await MqttService.MqttClient.Publish(new MqttApplicationMessage
 			{
-				Topic = Constants.MqttBaseUrl + "alarm/arm",
+				Topic = "home/alarm/arm",
 				Payload = Encoding.UTF8.GetBytes(message)
 			});
 	}

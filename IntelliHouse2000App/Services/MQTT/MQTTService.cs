@@ -1,3 +1,5 @@
+using System.Text;
+using IntelliHouse2000App.Helpers;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Connecting;
@@ -7,6 +9,7 @@ using MQTTnet.Client.Receiving;
 
 namespace IntelliHouse2000App.Services;
 
+[LifeTime(ServiceLifetime.Singleton)]
 public class MqttService : IMQTTService
 {
     private static MqttService Instance { get; set; }
@@ -18,6 +21,10 @@ public class MqttService : IMQTTService
     public event EventHandler<MqttClientDisconnectedEventArgs> Disconnected;
     public event EventHandler<MqttApplicationMessageReceivedEventArgs> MessageReceived;
 
+    public MqttService()
+    {
+        
+    }
     public bool IsConnected()
     {
         return _mqttClient.IsConnected;
@@ -27,7 +34,7 @@ public class MqttService : IMQTTService
     {
         try
         {
-            await _mqttClient.ConnectAsync(_mqttClientOptions);
+            if (!_mqttClient.IsConnected) await _mqttClient.ConnectAsync(_mqttClientOptions);
         }
         catch (Exception ex)
         {
@@ -110,6 +117,7 @@ public class MqttService : IMQTTService
     {
         try
         {
+            // await Connect();
             await _mqttClient.PublishAsync(message);
         }
         catch (Exception ex)
