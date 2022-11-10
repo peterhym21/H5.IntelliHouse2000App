@@ -31,7 +31,6 @@
             <Button
                 x:Name="CounterBtn"
                 Text="Click me"
-                Clicked="Publish"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
