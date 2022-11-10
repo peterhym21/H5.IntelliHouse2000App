@@ -14,10 +14,18 @@
 
     <ShellContent 
             Title="Alarm"
-            ContentTemplate="{DataTemplate view:Alarm}" />
+            ContentTemplate="{DataTemplate view:LogPage}" />
 
     <ShellContent 
             Title="Climate"
-            ContentTemplate="{DataTemplate view:Climate}" />
+            ContentTemplate="{DataTemplate view:ClimateKitchen}" />
+
+    <ShellContent 
+            Title="Climate"
+            ContentTemplate="{DataTemplate view:ClimateLivingroom}" />
+
+    <ShellContent 
+            Title="Climate"
+            ContentTemplate="{DataTemplate view:ClimateBedroom}" />
 
 </Shell>
