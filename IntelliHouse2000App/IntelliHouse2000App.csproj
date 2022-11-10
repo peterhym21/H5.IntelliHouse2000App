@@ -85,8 +85,4 @@
 
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="ViewModels\Climate\" />
-	</ItemGroup>
-
 </Project>

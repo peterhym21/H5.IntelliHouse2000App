@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelliHouse2000App.Views.ClimateBedroom"
+             xmlns:model="clr-namespace:IntelliHouse2000App.Models.Climate"
+             xmlns:viewmodel ="clr-namespace:IntelliHouse2000App.ViewModels.Climate"
+             x:DataType="viewmodel:ClimateViewModel"
              Title="Climate Bedroom">
 
     <VerticalStackLayout Spacing="10">
@@ -9,7 +12,7 @@
             <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Humidity in %:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Humid}" />-->
+                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding }"-->
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="1" Style="{StaticResource CardView}">
