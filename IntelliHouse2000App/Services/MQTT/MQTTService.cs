@@ -32,11 +32,7 @@ public class MqttService : IMQTTService
                 Password = Encoding.UTF8.GetBytes(Constants.mqttPass)
             })
             .Build());
-        // MqttClient.Connected += MqttClient_Connected;
-        // MqttClient.MessageReceived += MqttClient_MessageReceived;
-        // MqttClient.Disconnected += MqttClient_Disconnected;
-        // await MqttClient.Subscribe("home/system/log");
-        Connect().Wait();
+        var _ = Task.Run(async () => await Connect()).Result;
     }
     public bool IsConnected()
     {
