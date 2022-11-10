@@ -17,15 +17,15 @@
             ContentTemplate="{DataTemplate view:LogPage}" />
 
     <ShellContent 
-            Title="Climate"
+            Title="Climate Kitchen"
             ContentTemplate="{DataTemplate view:ClimateKitchen}" />
 
     <ShellContent 
-            Title="Climate"
+            Title="Climate Livingroom"
             ContentTemplate="{DataTemplate view:ClimateLivingroom}" />
 
     <ShellContent 
-            Title="Climate"
+            Title="Climate Bedroom"
             ContentTemplate="{DataTemplate view:ClimateBedroom}" />
 
 </Shell>
