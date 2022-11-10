@@ -16,17 +16,20 @@ public partial class MainPageViewModel : ObservableObject
     public void Disarm()
     {
         _alarmService.SetArmed(ArmedState.Disarmed);
+        MessagingCenter.Send(this, Constants.AlarmArmedSubject);
     }
     
     [RelayCommand]
     public void PartiallyArm()
     {
         _alarmService.SetArmed(ArmedState.PartiallyArmed);
+        MessagingCenter.Send(this, Constants.AlarmPartiallyArmedSubject);
     }
     
     [RelayCommand]
     public void FullyArm()
     {
         _alarmService.SetArmed(ArmedState.FullyArmed);
+        MessagingCenter.Send(this, Constants.AlarmFullyArmedSubject);
     }
 }
