@@ -11,9 +11,12 @@
                FontSize="20"></Label>
         
         <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="20">
-            <Button Text="Alarm Off"></Button>
-            <Button Text="Partially arm"></Button>
-            <Button Text="Fully arm"></Button>
+            <Button Text="Disarm"
+                    Command="{Binding DisarmCommand}"></Button>
+            <Button Text="Partially arm"
+                    Command="{Binding PartiallyArmCommand}"></Button>
+            <Button Text="Fully arm"
+                    Command="{Binding FullyArmCommand}"></Button>
         </HorizontalStackLayout>
     </Grid>
 
