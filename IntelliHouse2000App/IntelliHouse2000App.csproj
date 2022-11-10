@@ -49,16 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Models\Climate\Cilamte.txt" />
 	  <None Remove="Services\Climate\Cilamte.txt" />
-	  <None Remove="ViewModels\Climate\Cilamte.txt" />
 	  <None Remove="Views\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Models\Climate\Cilamte.txt" />
 	  <Compile Include="Services\Climate\Cilamte.txt" />
-	  <Compile Include="ViewModels\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -84,6 +80,10 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ViewModels\Climate\" />
 	</ItemGroup>
 
 </Project>
