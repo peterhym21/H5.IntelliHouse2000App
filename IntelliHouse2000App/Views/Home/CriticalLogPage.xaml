@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntelliHouse2000App.Views.CriticalLogPage"
+             xmlns:model="clr-namespace:IntelliHouse2000App.Models"
+             xmlns:home="clr-namespace:IntelliHouse2000App.ViewModels.Home"
+             x:DataType="home:LogPageViewModel"
+             Title="LogPage">
+    <ContentView>
+        <Grid RowDefinitions="50,*">
+    <CollectionView ItemsSource="{Binding LogMessages}"
+                    Grid.Row="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:LogMessage">
+                    <Grid Padding="5">
+                        <Frame Padding="2"
+                               BorderColor="Red"
+                               BackgroundColor="PaleVioletRed">
+                            <Grid Padding="0" ColumnDefinitions="*">
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Padding="2">
+                                    <Label Text="{Binding  Client, StringFormat='From: {0:F0}'}" />
+                                    <Label Text="{Binding Message}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding  Timestamp}"
+                                           HorizontalOptions="End"
+                                           HorizontalTextAlignment="End"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+            </Grid>
+    </ContentView>
+</ContentPage>

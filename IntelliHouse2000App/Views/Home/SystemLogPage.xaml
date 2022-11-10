@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IntelliHouse2000App.Views.LogPage"
-             xmlns:viewmodel="clr-namespace:IntelliHouse2000App.ViewModels"
+             x:Class="IntelliHouse2000App.Views.SystemLogPage"
              xmlns:model="clr-namespace:IntelliHouse2000App.Models"
              xmlns:home="clr-namespace:IntelliHouse2000App.ViewModels.Home"
              x:DataType="home:LogPageViewModel"
              Title="LogPage">
-    <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding LogMessages}">
+    <ContentView>
+        <Grid RowDefinitions="50,*">
+    <CollectionView ItemsSource="{Binding LogMessages}"
+                    Grid.Row="2">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:LogMessage">
                     <Grid Padding="5">
-                        <Frame>
+                        <Frame Padding="2"
+                               BorderColor="DarkOliveGreen"
+                               BackgroundColor="YellowGreen">
                             <Grid Padding="0" ColumnDefinitions="*">
                                 <VerticalStackLayout
                                     Grid.Column="1"
                                     Padding="2">
-                                    <HorizontalStackLayout><Label Text="Afsender: " /><Label Text="{Binding  Client}" /></HorizontalStackLayout>
-                                    <Label Text="{Binding Message, StringFormat='Besked: {0:F0}'}"
+                                    <Label Text="{Binding  Client, StringFormat='From: {0:F0}'}" />
+                                    <Label Text="{Binding Message}"
                                            FontSize="18"
                                            FontAttributes="Bold"
                                            LineBreakMode="WordWrap" />
@@ -32,5 +35,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+            </Grid>
+    </ContentView>
 </ContentPage>
