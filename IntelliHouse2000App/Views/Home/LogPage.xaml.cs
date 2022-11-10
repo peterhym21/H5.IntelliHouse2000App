@@ -15,6 +15,6 @@ public partial class LogPage : ContentPage
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		_viewModel.GetCriticalLogsAsync();
+		await _viewModel.GetCriticalLogsAsync();
 	}
 }

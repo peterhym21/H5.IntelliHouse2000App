@@ -8,6 +8,7 @@ namespace IntelliHouse2000App.Repository;
 public class GenericRepository : IGenericRepository
 {
     private readonly HttpClient _client;
+    private readonly JsonSerializerOptions _serializerOptions;
     private readonly IHttpsClientHandlerService _httpsClientHandlerService;
 
     public GenericRepository(IHttpsClientHandlerService service)
@@ -21,7 +22,12 @@ public class GenericRepository : IGenericRepository
             _client = new HttpClient();
 #else
             _client = new HttpClient();
-#endif
+#endif        
+        _serializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = true
+        };
     }
 
 
@@ -39,7 +45,8 @@ public class GenericRepository : IGenericRepository
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                result = JsonSerializer.Deserialize<T>(content);
+                result = JsonSerializer.Deserialize<T>(content, _serializerOptions);
+                // result = JsonSerializer.Deserialize<T>(content);
                 Debug.WriteLine(@"+++++ Item(s) successfully received.");
             }
         }
@@ -61,7 +68,7 @@ public class GenericRepository : IGenericRepository
 
         try
         {
-            string json = JsonSerializer.Serialize<T>(data);
+            string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = null;
@@ -90,7 +97,7 @@ public class GenericRepository : IGenericRepository
 
         try
         {
-            string json = JsonSerializer.Serialize<T>(data);
+            string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = null;
@@ -121,7 +128,7 @@ public class GenericRepository : IGenericRepository
 
         try
         {
-            string json = JsonSerializer.Serialize<T>(data);
+            string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = null;
@@ -174,14 +181,7 @@ public class GenericRepository : IGenericRepository
     {
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        if (!string.IsNullOrEmpty(authToken))
-        {
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
-        }
-        else
-        {
-            _client.DefaultRequestHeaders.Authorization = null;
-        }
+        _client.DefaultRequestHeaders.Authorization = !string.IsNullOrEmpty(authToken) ? new AuthenticationHeaderValue("Bearer", authToken) : null;
     }
 
     #endregion

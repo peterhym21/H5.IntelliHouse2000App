@@ -6,32 +6,9 @@ using IntelliHouse2000App.Repository;
 
 namespace IntelliHouse2000App.ViewModels.Home;
 
-public class LogPageViewModel : ObservableObject
+public partial class LogPageViewModel : ObservableObject
 {
-    public ObservableCollection<LogMessage> LogMessages { get; set; } = new ObservableCollection<LogMessage>
-    {
-        new LogMessage
-        {
-            Id = 1,
-            Client = "Test",
-            Message = "Test besked",
-            Retain = true,
-            Timestamp = DateTime.Now,
-            Topic = "Something something",
-            QoS = 1
-        },
-        new LogMessage
-        {
-            Id = 2,
-            Client = "Tes2",
-            Message = "Test besked",
-            Retain = false,
-            Timestamp = DateTime.Now,
-            Topic = "Something something darkside",
-            QoS = 0
-        }
-    };
-
+    [ObservableProperty] public ObservableCollection<LogMessage> logMessages;
     private readonly IGenericRepository _repository;
 
     public LogPageViewModel(IGenericRepository repository)
@@ -40,9 +17,9 @@ public class LogPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public async void GetCriticalLogsAsync()
+    public async Task GetCriticalLogsAsync()
     {
-        var something = await _repository.GetAsync<List<LogMessage>>(new Uri(Constants.ApiBaseUrl));
+        var something = await _repository.GetAsync<List<LogMessage>>(new Uri(Constants.ApiBaseUrl + "critical"));
         LogMessages = new ObservableCollection<LogMessage>(something);
     }
 }
