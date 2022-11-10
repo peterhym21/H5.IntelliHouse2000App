@@ -8,7 +8,10 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
         BindingContext = this;
-        Routing.RegisterRoute(nameof(Alarm), typeof(Alarm));
-        Routing.RegisterRoute(nameof(Climate), typeof(Climate));
+        Routing.RegisterRoute(nameof(LogPage), typeof(LogPage));
+        Routing.RegisterRoute(nameof(ClimateKitchen), typeof(ClimateKitchen));
+        Routing.RegisterRoute(nameof(ClimateLivingroom), typeof(ClimateLivingroom));
+        Routing.RegisterRoute(nameof(ClimateBedroom), typeof(ClimateBedroom));
+        
     }
 }

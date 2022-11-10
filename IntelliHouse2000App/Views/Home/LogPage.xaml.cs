@@ -1,8 +1,8 @@
 namespace IntelliHouse2000App.Views;
 
-public partial class Alarm : ContentPage
+public partial class LogPage : ContentPage
 {
-	public Alarm()
+	public LogPage()
 	{
 		InitializeComponent();
 	}

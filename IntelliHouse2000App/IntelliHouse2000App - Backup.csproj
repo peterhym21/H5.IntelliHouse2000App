@@ -52,7 +52,6 @@
 	  <None Remove="Models\Climate\Cilamte.txt" />
 	  <None Remove="Services\Climate\Cilamte.txt" />
 	  <None Remove="ViewModels\Climate\Cilamte.txt" />
-	  <None Remove="Views\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,29 +61,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Climate\ClimateLivingroom.xaml.cs">
-	    <DependentUpon>ClimateLivingroom.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\Climate\ClimateLivingroom.xaml">
+	  <MauiXaml Update="Views\Alarm\Alarm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Climate\ClimateBedroom.xaml">
+	  <MauiXaml Update="Views\Climate\Climate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Climate\ClimateKitchen.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Home\LogPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="MQTTnet" Version="3.1.1" />
-	  <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.1" />
 	</ItemGroup>
 
 </Project>
