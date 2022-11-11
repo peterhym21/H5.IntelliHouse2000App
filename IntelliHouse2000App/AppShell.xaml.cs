@@ -1,4 +1,5 @@
-﻿using IntelliHouse2000App.Views;
+﻿using IntelliHouse2000App.ViewModels.Climate;
+using IntelliHouse2000App.Views;
 
 namespace IntelliHouse2000App;
 
@@ -12,6 +13,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ClimateKitchen), typeof(ClimateKitchen));
         Routing.RegisterRoute(nameof(ClimateLivingroom), typeof(ClimateLivingroom));
         Routing.RegisterRoute(nameof(ClimateBedroom), typeof(ClimateBedroom));
+        Routing.RegisterRoute(nameof(ClimateGraphsPage), typeof(ClimateGraphsPage));
         
     }
 }

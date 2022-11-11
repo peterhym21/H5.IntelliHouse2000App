@@ -28,5 +28,8 @@
     <ShellContent 
             Title="Climate Bedroom"
             ContentTemplate="{DataTemplate view:ClimateBedroom}" />
+    <ShellContent
+            Title="Graphs"
+            ContentTemplate="{DataTemplate view:ClimateGraphsPage}" />
 
 </Shell>
