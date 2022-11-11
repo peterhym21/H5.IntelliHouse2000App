@@ -21,7 +21,8 @@ public class MqttService : IMQTTService
 
     public MqttService()
     {
-        Initialize(new MqttClientOptionsBuilder().WithClientId("MQTT_APP")
+        Initialize(new MqttClientOptionsBuilder()
+            .WithClientId(GenerateUniqueClientId())
             .WithCleanSession(true)
             .WithTcpServer(Constants.MqttBaseUrl)
             .WithCredentials(new MqttClientCredentials
@@ -32,6 +33,14 @@ public class MqttService : IMQTTService
             .Build());
         
         var _ = Task.Run(async () => await Connect()).Result;
+    }
+    private string GenerateUniqueClientId()
+    {
+        string guid = Guid.NewGuid().ToString();
+        string randomValue = guid.Substring(0, 12).Replace("-", "");
+        string clientId = $"MQTT_APP_{randomValue}";
+
+        return clientId;
     }
     public bool IsConnected()
     {
