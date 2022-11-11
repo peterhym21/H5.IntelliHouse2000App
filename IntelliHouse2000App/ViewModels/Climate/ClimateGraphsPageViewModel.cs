@@ -24,7 +24,7 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"kitchen?ts={timeStamp}"));
-        KitchenValues = logs;
+        KitchenValues = logs.OrderBy(t => t.Timestamp).ToList();
     }
 
     [RelayCommand]
@@ -33,7 +33,7 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"livingroom?ts={timeStamp}"));
-        LivingroomValues = logs;
+        LivingroomValues = logs.OrderBy(t => t.Timestamp).ToList();
     }
     
     [RelayCommand]
@@ -42,6 +42,6 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"bedroom?ts={timeStamp}"));
-        BedroomValues = logs;
+        BedroomValues = logs.OrderBy(t => t.Timestamp).ToList();
     }
 }

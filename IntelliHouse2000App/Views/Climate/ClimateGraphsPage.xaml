@@ -5,36 +5,88 @@
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
              xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels"
              x:DataType="climate:ClimateGraphsPageViewModel">
+    <StackLayout>
+            <chart:SfCartesianChart BackgroundColor="LightGrey"
+                                    Title="Kitchen"
+                                    HeightRequest="250">
+                
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis>
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="80" />
+                </chart:SfCartesianChart.YAxes>  
 
-    <!-- <ContentView> -->
-    <!--     <VerticalStackLayout -->
-    <!--         Spacing="25" -->
-    <!--         Padding="30,0" -->
-    <!--         VerticalOptions="Center"> -->
-    <!-- -->
-    <!--         <Label Text="{Binding KitchenValues.Count }" /> -->
-    <!--         <Label Text="{Binding BedroomValues.Count}" /> -->
-    <!--         <Label Text="{Binding LivingroomValues.Count}" /> -->
-    <!--          -->
-    <!-- -->
-    <!--     </VerticalStackLayout> -->
-    <!-- </ContentView> -->
-    
-    <chart:SfCartesianChart>
-        <chart:SfCartesianChart.XAxes>
-            <chart:CategoryAxis />
-        </chart:SfCartesianChart.XAxes>
+                <chart:LineSeries ItemsSource="{Binding KitchenValues}"
+                                  XBindingPath="Timestamp" 
+                                  YBindingPath="Temperature"
+                                  EnableAnimation="True"
+                                  Fill="Red"
+                                  Label="Temperature"/>
+                <chart:LineSeries ItemsSource="{Binding KitchenValues}" 
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Humidity"
+                                  EnableAnimation="True"
+                                  Fill="Blue"
+                                  Label="Humidity"/>
+            </chart:SfCartesianChart>
+            
+            <chart:SfCartesianChart BackgroundColor="LightGrey"
+                                    Title="Bedroom"
+                                    HeightRequest="250">
+                
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis >
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="80" />
+                </chart:SfCartesianChart.YAxes>  
 
-        <chart:SfCartesianChart.YAxes>
-            <chart:NumericalAxis />
-        </chart:SfCartesianChart.YAxes>  
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}"
+                                  XBindingPath="Timestamp" 
+                                  YBindingPath="Temperature"
+                                  EnableAnimation="True"
+                                  Fill="Red"
+                                  Label="Temperature"/>
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}" 
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Humidity"
+                                  EnableAnimation="True"
+                                  Fill="Blue"
+                                  Label="Humidity"/>
+            </chart:SfCartesianChart>
+            
+            <chart:SfCartesianChart BackgroundColor="LightGrey"
+                                    Title="Livingroom"
+                                    HeightRequest="280">
+                
+                <chart:SfCartesianChart.Legend>
+                    <chart:ChartLegend Placement="Bottom">
+                    </chart:ChartLegend>
+                </chart:SfCartesianChart.Legend>
+                
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis >
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="80" />
+                </chart:SfCartesianChart.YAxes>   
 
-        <chart:LineSeries ItemsSource="{Binding KitchenValues}"
-                          XBindingPath="Timestamp" 
-                          YBindingPath="Temperature"/>
-        <chart:LineSeries ItemsSource="{Binding KitchenValues}" 
-                          XBindingPath="Timestamp"
-                          YBindingPath="Humidity"/>
-    </chart:SfCartesianChart>
-
+                <chart:LineSeries ItemsSource="{Binding LivingroomValues}"
+                                  XBindingPath="Timestamp" 
+                                  YBindingPath="Temperature"
+                                  EnableAnimation="True"
+                                  Fill="Red"
+                                  Label="Temperature"/>
+                <chart:LineSeries ItemsSource="{Binding LivingroomValues}" 
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Humidity"
+                                  EnableAnimation="True"
+                                  Fill="Blue"
+                                  Label="Humidity"/>
+            </chart:SfCartesianChart>
+    </StackLayout>
 </ContentPage>

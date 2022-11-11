@@ -17,8 +17,8 @@ public partial class ClimateGraphsPage : ContentPage
 	{
 		base.OnAppearing();
 		await _viewModel.GetBedroomAsync(DateTime.Now);
-		await _viewModel.GetKitchenAsync(DateTime.Now.AddDays(-2));
-		await _viewModel.GetLivingroomAsync(DateTime.Now.AddHours(5));
+		await _viewModel.GetKitchenAsync(DateTime.Now);
+		await _viewModel.GetLivingroomAsync(DateTime.Now);
 	}
 }
 
