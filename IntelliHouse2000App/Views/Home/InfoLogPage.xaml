@@ -4,8 +4,7 @@
              x:Class="IntelliHouse2000App.Views.InfoLogPage"
              xmlns:model="clr-namespace:IntelliHouse2000App.Models"
              xmlns:home="clr-namespace:IntelliHouse2000App.ViewModels.Home"
-             x:DataType="home:LogPageViewModel"
-             Title="LogPage">
+             x:DataType="home:LogPageViewModel">
     <ContentView>
         <Grid RowDefinitions="50,*">
         <CollectionView ItemsSource="{Binding LogMessages}"
