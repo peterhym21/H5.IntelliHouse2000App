@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelliHouse2000App.Views.ClimateBedroom"
-             xmlns:model="clr-namespace:IntelliHouse2000App.Models.Climate"
-             xmlns:viewmodel ="clr-namespace:IntelliHouse2000App.ViewModels.Climate"
+             xmlns:model="clr-namespace:IntelliHouse2000App.Models"
+             xmlns:viewmodel ="clr-namespace:IntelliHouse2000App.ViewModels"
              x:DataType="viewmodel:ClimateViewModel"
              Title="Climate Bedroom">
 
@@ -12,13 +12,13 @@
             <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Humidity in %:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding }"-->
+                    <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Climate.Humid}" />
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="1" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Tempreture in °C:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Temp}" />-->
+                    <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Climate.Temp}" />
                 </VerticalStackLayout>
             </Frame>
         </Grid>
@@ -27,27 +27,29 @@
             <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text=" Set Humidity in %:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Humid}" />-->
-                    <!--<Button Text="Set Airquality" 
-                        Command="{Binding GetMonkeysCommand}"
+                    <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetHumid}" />
+                    <Button Text="Set Humidity" 
+                        Command="{Binding SetHumidCommand}"
+                        CommandParameter="{Binding Climate}"
                         IsEnabled="{Binding IsNotBusy}"
                         Grid.Row="1"
                         Grid.Column="0"
                         Style="{StaticResource ButtonOutline}"
-                        Margin="8"/>-->
+                        Margin="8"/>
                 </VerticalStackLayout>
             </Frame>
             <Frame Grid.Column="1" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Set Tempreture in °C:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Temp}" />-->
-                    <!--<Button Text="Set Airquality" 
-                        Command="{Binding GetMonkeysCommand}"
+                    <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetTemp}" />
+
+                    <Button Text="Set Temperture"
+                        Command="{Binding SetTempCommand}"
                         IsEnabled="{Binding IsNotBusy}"
                         Grid.Row="1"
                         Grid.Column="0"
                         Style="{StaticResource ButtonOutline}"
-                        Margin="8"/>-->
+                        Margin="8"/>
                 </VerticalStackLayout>
             </Frame>
         </Grid>
@@ -56,7 +58,7 @@
             <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Airquality in PPM:" />
-                    <!--<Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Humid}" />-->
+                    <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="{Binding Climate.Airquality}" />
                 </VerticalStackLayout>
             </Frame>
         </Grid>

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IntelliHouse2000App.Models.Climate
+﻿namespace IntelliHouse2000App.Models
 {
     public class Climate
     {
+        public string Room { get; set; }
         public int Temp { get; set; }
         public int SetTemp { get; set; }
         public int Humid { get; set; }

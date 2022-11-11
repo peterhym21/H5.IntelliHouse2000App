@@ -49,12 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Services\Climate\Cilamte.txt" />
 	  <None Remove="Views\Climate\Cilamte.txt" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Include="Services\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
