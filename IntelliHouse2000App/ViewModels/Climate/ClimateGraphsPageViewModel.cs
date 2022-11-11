@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Models;
 using IntelliHouse2000App.Repository;
 
-namespace IntelliHouse2000App.ViewModels.Climate;
+namespace IntelliHouse2000App.ViewModels;
 
 public partial class ClimateGraphsPageViewModel : ObservableObject
 {
