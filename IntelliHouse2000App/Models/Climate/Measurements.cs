@@ -1,4 +1,4 @@
-namespace IntelliHouse2000App.Models.Climate;
+namespace IntelliHouse2000App.Models;
 
 public class Measurements
 {
