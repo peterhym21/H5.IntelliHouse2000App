@@ -8,9 +8,9 @@ namespace IntelliHouse2000App.ViewModels.Climate;
 
 public partial class ClimateGraphsPageViewModel : ObservableObject
 {
-    [ObservableProperty] public ObservableCollection<Measurements> kitchenValues = new ();
-    [ObservableProperty] public ObservableCollection<Measurements> bedroomValues = new ();
-    [ObservableProperty] public ObservableCollection<Measurements> livingroomValues = new ();
+    [ObservableProperty] public List<Measurements> kitchenValues = new ();
+    [ObservableProperty] public List<Measurements> bedroomValues = new ();
+    [ObservableProperty] public List<Measurements> livingroomValues = new ();
     private readonly IGenericRepository _repository;
 
     public ClimateGraphsPageViewModel(IGenericRepository repo)
@@ -24,7 +24,7 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"kitchen?ts={timeStamp}"));
-        KitchenValues = new ObservableCollection<Measurements>(logs);
+        KitchenValues = logs;
     }
 
     [RelayCommand]
@@ -33,7 +33,7 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"livingroom?ts={timeStamp}"));
-        LivingroomValues = new ObservableCollection<Measurements>(logs);
+        LivingroomValues = logs;
     }
     
     [RelayCommand]
@@ -42,6 +42,6 @@ public partial class ClimateGraphsPageViewModel : ObservableObject
         DateTime timeStamp = ts ?? DateTime.Now;
         
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"bedroom?ts={timeStamp}"));
-        BedroomValues = new ObservableCollection<Measurements>(logs);
+        BedroomValues = logs;
     }
 }

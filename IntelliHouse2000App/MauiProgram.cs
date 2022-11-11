@@ -1,4 +1,5 @@
 ﻿using IntelliHouse2000App.Helpers;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace IntelliHouse2000App;
 
@@ -9,6 +10,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.ConfigureSyncfusionCore()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -2,22 +2,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelliHouse2000App.Views.ClimateGraphsPage"
-             xmlns:model="clr-namespace:IntelliHouse2000App.Models"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
              xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels.Climate"
              x:DataType="climate:ClimateGraphsPageViewModel">
 
-    <ContentView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <!-- <ContentView> -->
+    <!--     <VerticalStackLayout -->
+    <!--         Spacing="25" -->
+    <!--         Padding="30,0" -->
+    <!--         VerticalOptions="Center"> -->
+    <!-- -->
+    <!--         <Label Text="{Binding KitchenValues.Count }" /> -->
+    <!--         <Label Text="{Binding BedroomValues.Count}" /> -->
+    <!--         <Label Text="{Binding LivingroomValues.Count}" /> -->
+    <!--          -->
+    <!-- -->
+    <!--     </VerticalStackLayout> -->
+    <!-- </ContentView> -->
+    
+    <chart:SfCartesianChart>
+        <chart:SfCartesianChart.XAxes>
+            <chart:CategoryAxis />
+        </chart:SfCartesianChart.XAxes>
 
-            <Label Text="{Binding KitchenValues.Count }" />
-            <Label Text="{Binding BedroomValues.Count}" />
-            <Label Text="{Binding LivingroomValues.Count}" />
-            
+        <chart:SfCartesianChart.YAxes>
+            <chart:NumericalAxis />
+        </chart:SfCartesianChart.YAxes>  
 
-        </VerticalStackLayout>
-    </ContentView>
+        <chart:LineSeries ItemsSource="{Binding KitchenValues}"
+                          XBindingPath="Timestamp" 
+                          YBindingPath="Temperature"/>
+        <chart:LineSeries ItemsSource="{Binding KitchenValues}" 
+                          XBindingPath="Timestamp"
+                          YBindingPath="Humidity"/>
+    </chart:SfCartesianChart>
 
 </ContentPage>
