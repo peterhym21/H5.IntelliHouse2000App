@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntelliHouse2000App.Views.BedroomGraphsPage"
+             xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:DataType="climate:ClimateGraphsPageViewModel">
+    <StackLayout>
+            
+            <chart:SfCartesianChart BackgroundColor="LightGrey"
+                                    Title="Bedroom">
+    
+                <chart:SfCartesianChart.Legend>
+                    <chart:ChartLegend Placement="Top">
+                    </chart:ChartLegend>
+                </chart:SfCartesianChart.Legend>
+    
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis >
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="100" />
+                </chart:SfCartesianChart.YAxes>
+    
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}"
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Temperature"
+                                  EnableAnimation="True"
+                                  Fill="Red"
+                                  Label="Temperature"/>
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}"
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Humidity"
+                                  EnableAnimation="True"
+                                  Fill="Blue"
+                                  Label="Humidity"/>
+            </chart:SfCartesianChart>
+    </StackLayout>
+</ContentPage>
