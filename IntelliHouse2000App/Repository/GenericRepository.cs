@@ -1,7 +1,10 @@
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using Polly;
+using Polly.Retry;
 
 namespace IntelliHouse2000App.Repository;
 
@@ -41,7 +44,7 @@ public class GenericRepository : IGenericRepository
 
         try
         {
-            HttpResponseMessage response = await _client.GetAsync(uri);
+            HttpResponseMessage response = await ApiRetryPolicy().ExecuteAsync(async () => await _client.GetAsync(uri));
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
@@ -57,7 +60,6 @@ public class GenericRepository : IGenericRepository
 
         return result;
     }
-
     #endregion
 
     #region POST
@@ -71,9 +73,7 @@ public class GenericRepository : IGenericRepository
             string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            response = await _client.PostAsync(uri, content);
-
+            HttpResponseMessage response = await ApiRetryPolicy().ExecuteAsync(async () => await _client.PostAsync(uri, content));
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"+++++ Item successfully created.");
@@ -100,9 +100,7 @@ public class GenericRepository : IGenericRepository
             string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            response = await _client.PostAsync(uri, content);
-
+            HttpResponseMessage response = await ApiRetryPolicy().ExecuteAsync(async () => await _client.PostAsync(uri, content));
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"+++++ Item successfully created.");
@@ -131,9 +129,7 @@ public class GenericRepository : IGenericRepository
             string json = JsonSerializer.Serialize<T>(data, _serializerOptions);
             StringContent content = new(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            response = await _client.PutAsync(uri, content);
-
+            HttpResponseMessage response = await ApiRetryPolicy().ExecuteAsync(async () => await _client.PutAsync(uri, content));
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"+++++ Item successfully updated.");
@@ -157,7 +153,7 @@ public class GenericRepository : IGenericRepository
     {
         try
         {
-            HttpResponseMessage response = await _client.DeleteAsync(uri);
+            HttpResponseMessage response = await ApiRetryPolicy().ExecuteAsync(async () => await _client.DeleteAsync(uri));
             if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"+++++ TodoItem successfully deleted.");
@@ -182,6 +178,12 @@ public class GenericRepository : IGenericRepository
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
         _client.DefaultRequestHeaders.Authorization = !string.IsNullOrEmpty(authToken) ? new AuthenticationHeaderValue("Bearer", authToken) : null;
+    }
+    private static AsyncRetryPolicy ApiRetryPolicy()
+    {
+        return Policy.Handle<WebException>(ex => ex.Status == WebExceptionStatus.Timeout)
+                     .WaitAndRetryAsync(retryCount: 3, 
+                                        sleepDurationProvider: attempt => TimeSpan.FromSeconds(3));
     }
 
     #endregion
