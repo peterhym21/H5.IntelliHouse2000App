@@ -7,7 +7,8 @@
              x:DataType="climate:ClimateGraphsPageViewModel">
     <StackLayout>
         <chart:SfCartesianChart BackgroundColor="LightGrey"
-                                    Title="Kitchen">
+                                Title="Kitchen"
+                                HeightRequest="350">
 
             <chart:SfCartesianChart.Legend>
                 <chart:ChartLegend Placement="Top">
@@ -37,7 +38,7 @@
         </chart:SfCartesianChart>
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
-            <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
+            <Frame Grid.Column="0" Padding="10">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text=" Set Humidity in %:" />
                     <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetHumid}" />
@@ -51,7 +52,7 @@
                         Margin="8"/>
                 </VerticalStackLayout>
             </Frame>
-            <Frame Grid.Column="1" Style="{StaticResource CardView}">
+            <Frame Grid.Column="1">
                 <VerticalStackLayout Padding="10">
                     <Label TextColor="Black" Style="{StaticResource LargeLabel}" Text="Set Tempreture in °C:" />
                     <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetTemp}" />
