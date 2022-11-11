@@ -6,35 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IntelliHouse2000App.Models;
+using IntelliHouse2000App.Repository;
 
 namespace IntelliHouse2000App.Services
 {
     public partial class ClimateService
     {
         private readonly IMQTTService _mqttService;
-        public ClimateService(IMQTTService mqttService)
+        private readonly IGenericRepository _repository;
+        public ClimateService(IMQTTService mqttService, IGenericRepository repository)
         {
             _mqttService = mqttService;
+            _repository = repository;
         }
 
-        public Climate GetClimateService(Climate climate)
+        public async Task<Climate> GetClimateService(Climate climate)
         {
-            switch (climate.Room)
-            {
-                case "bedroom":
-                    // call api
-                    break;
-                case "livingroom":
-                    // call api
-                    break;
-                case "kitchen":
-                    // call api
-                    break;
-                default:
-                    break;
-            }
+            DateTime timeStamp =  DateTime.Now;
+            List<Climate> climates = await _repository.GetAsync<List<Climate>>(new Uri(Constants.ApiBaseUrl + climate.Room + $"?ts={timeStamp.ToString("yyyy-MM-dd")}"));
+            climate = climates.FirstOrDefault();
             return climate;
-
         }
 
         public void SetHumidService(Climate climate)

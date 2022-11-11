@@ -29,7 +29,7 @@ namespace IntelliHouse2000App.ViewModels
 
             try
             {
-                _climateService.GetClimateService( climate);
+                await _climateService.GetClimateService(climate);
             }
             catch (Exception ex)
             {
