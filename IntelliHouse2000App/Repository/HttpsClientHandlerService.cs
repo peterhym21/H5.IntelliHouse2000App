@@ -9,7 +9,6 @@ public class HttpsClientHandlerService : IHttpsClientHandlerService
         handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
         {
                 return true;
-            return errors == System.Net.Security.SslPolicyErrors.None;
         };
         return handler;
 #elif IOS
