@@ -45,6 +45,7 @@
 
                     <Button Text="Set Temperture"
                         Command="{Binding SetTempCommand}"
+                        CommandParameter="{Binding Climate}"
                         IsEnabled="{Binding IsNotBusy}"
                         Grid.Row="1"
                         Grid.Column="0"

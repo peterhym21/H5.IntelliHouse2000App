@@ -17,10 +17,9 @@ namespace IntelliHouse2000App.Services
             _mqttService = mqttService;
         }
 
-        public Climate GetClimate(string room)
+        public Climate GetClimateService(Climate climate)
         {
-            Climate climate = new();
-            switch (room)
+            switch (climate.Room)
             {
                 case "bedroom":
                     // call api
@@ -34,12 +33,11 @@ namespace IntelliHouse2000App.Services
                 default:
                     break;
             }
-
             return climate;
 
         }
 
-        public void SetHumid(Climate climate)
+        public void SetHumidService(Climate climate)
         {
             switch (climate.Room)
             {
@@ -55,7 +53,7 @@ namespace IntelliHouse2000App.Services
                 case "livingroom":
                     _mqttService.Publish(new MqttApplicationMessage()
                     {
-                        Topic = "home/climate/bedroom/sethumid",
+                        Topic = "home/climate/livingroom/sethumid",
                         Payload = Encoding.UTF8.GetBytes(climate.SetHumid.ToString()),
                         Retain = true,
                         QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
@@ -64,7 +62,7 @@ namespace IntelliHouse2000App.Services
                 case "kitchen":
                     _mqttService.Publish(new MqttApplicationMessage()
                     {
-                        Topic = "home/climate/bedroom/sethumid",
+                        Topic = "home/climate/kitchen/sethumid",
                         Payload = Encoding.UTF8.GetBytes(climate.SetHumid.ToString()),
                         Retain = true,
                         QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
@@ -78,7 +76,7 @@ namespace IntelliHouse2000App.Services
         }
 
 
-        public void SetTemp(Climate climate)
+        public void SetTempService(Climate climate)
         {
             switch (climate.Room)
             {
@@ -95,7 +93,7 @@ namespace IntelliHouse2000App.Services
                 case "livingroom":
                     _mqttService.Publish(new MqttApplicationMessage()
                     {
-                        Topic = "home/climate/bedroom/settemp",
+                        Topic = "home/climate/livingroom/settemp",
                         Payload = Encoding.UTF8.GetBytes(climate.SetTemp.ToString()),
                         Retain = true,
                         QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
@@ -105,7 +103,7 @@ namespace IntelliHouse2000App.Services
                 case "kitchen":
                     _mqttService.Publish(new MqttApplicationMessage()
                     {
-                        Topic = "home/climate/bedroom/settemp",
+                        Topic = "home/climate/kitchen/settemp",
                         Payload = Encoding.UTF8.GetBytes(climate.SetTemp.ToString()),
                         Retain = true,
                         QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce

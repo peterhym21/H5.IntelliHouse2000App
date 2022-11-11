@@ -23,13 +23,13 @@ namespace IntelliHouse2000App.ViewModels
 
 
         [RelayCommand]
-        async Task GetClimateAsynce(string room)
+        async Task GetClimateAsynce(Climate climate)
         {
             if(IsBusy) return;
 
             try
             {
-                climate = _climateService.GetClimate(room);
+                _climateService.GetClimateService( climate);
             }
             catch (Exception ex)
             {
@@ -43,15 +43,15 @@ namespace IntelliHouse2000App.ViewModels
         }
 
         [RelayCommand]
-        async Task SetHumidAsync(Climate setclimate)
+        async Task SetHumidAsync(Climate climate)
         {
-            _climateService.SetHumid(setclimate);
+            _climateService.SetHumidService(climate);
         }
 
         [RelayCommand]
-        async Task SetTempAsync(Climate setclimate)
+        async Task SetTempAsync(Climate climate)
         {
-            _climateService.SetTemp(setclimate);
+            _climateService.SetTempService(climate);
         }
 
 
