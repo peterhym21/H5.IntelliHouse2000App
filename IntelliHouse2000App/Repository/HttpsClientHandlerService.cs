@@ -43,7 +43,6 @@ public class HttpsClientHandlerService : IHttpsClientHandlerService
         public bool IsHttpsLocalhost(NSUrlSessionHandler sender, string url, Security.SecTrust trust)
         {
                 return true;
-            return false;
         }
 #endif
 }
