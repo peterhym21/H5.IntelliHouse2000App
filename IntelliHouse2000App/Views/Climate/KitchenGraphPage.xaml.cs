@@ -12,6 +12,8 @@ public partial class KitchenGraphsPage : ContentPage
 		_viewModel = viewModel;
 		BindingContext = _viewModel;
 		InitializeComponent();
+        _viewModel.Climate.Room = "kitchen";
+
         MessagingCenter.Subscribe<ClimateService, string>(this, "Set-Humid",
 		(sender, arg) => DisplayAlert("Info", $"{arg}!", "OK"));
 
