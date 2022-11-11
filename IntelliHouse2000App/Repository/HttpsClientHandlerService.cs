@@ -8,7 +8,6 @@ public class HttpsClientHandlerService : IHttpsClientHandlerService
         var handler = new CustomAndroidMessageHandler();
         handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
         {
-            // if (cert != null && cert.Issuer.Equals("CN=localhost"))
                 return true;
             return errors == System.Net.Security.SslPolicyErrors.None;
         };
