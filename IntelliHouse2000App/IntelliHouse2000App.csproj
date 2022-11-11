@@ -54,6 +54,34 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Home\LogMainPage.xaml.cs">
+	    <DependentUpon>LogMainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Home\InfoLogPage.xaml.cs">
+	    <DependentUpon>InfoLogPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Home\SystemLogPage.xaml.cs">
+	    <DependentUpon>SystemLogPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Climate\ClimateGraphsPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Climate\KitchenGraphPage.xaml.cs">
+	    <DependentUpon>KitchenGraphPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Climate\BedroomGraphPage.xaml.cs">
+	    <DependentUpon>BedroomGraphPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Climate\LivingroomGraphPage.xaml.cs">
+	    <DependentUpon>LivingroomGraphPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
 		<Compile Update="Views\Home\LogMainPage.xaml.cs">
 			<DependentUpon>LogMainPage.xaml</DependentUpon>
 			<SubType>Code</SubType>
@@ -127,10 +155,56 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MQTTnet" Version="3.1.1" />
-		<PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.1" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="20.3.56" />
+	  <MauiXaml Update="Views\Climate\ClimateLivingroom.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\ClimateBedroom.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\ClimateKitchen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\CriticalLogPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\LogMainPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\InfoLogPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\SystemLogPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\InfoLogPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\SystemLogPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\ClimateGraphsPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\KitchenGraphPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\BedroomGraphPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Climate\LivingroomGraphPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="MQTTnet" Version="3.1.1" />
+	  <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.1" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="Syncfusion.Maui.Charts" Version="20.3.56" />
+	</ItemGroup>
 </Project>
