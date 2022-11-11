@@ -10,8 +10,8 @@ public partial class ClimateBedroom : ContentPage
 	public ClimateBedroom(ClimateViewModel viewModelClimate)
 	{
 		InitializeComponent();
-		this._viewModelClimate = viewModelClimate;
-		BindingContext= _viewModelClimate;
+		_viewModelClimate = viewModelClimate;
+		BindingContext = _viewModelClimate;
         _viewModelClimate.Climate.Room = "bedroom";
 
         MessagingCenter.Subscribe<ClimateViewModel, string>(this, "No-Climate",
@@ -27,7 +27,7 @@ public partial class ClimateBedroom : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        _viewModelClimate.GetClimateAsynceCommand.Execute(_viewModelClimate.Climate);
+        _viewModelClimate.GetClimateCommand.Execute(_viewModelClimate.Climate);
     }
 
 }

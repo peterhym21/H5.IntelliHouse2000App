@@ -1,4 +1,4 @@
-﻿using IntelliHouse2000App.ViewModels.Climate;
+﻿using IntelliHouse2000App.ViewModels;
 using IntelliHouse2000App.Views;
 
 namespace IntelliHouse2000App;

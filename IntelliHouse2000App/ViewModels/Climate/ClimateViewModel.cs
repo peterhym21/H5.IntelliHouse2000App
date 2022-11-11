@@ -23,13 +23,13 @@ namespace IntelliHouse2000App.ViewModels
 
 
         [RelayCommand]
-        async Task GetClimateAsynce(Climate climate)
+        async Task GetClimateAsync(Climate climate)
         {
             if(IsBusy) return;
 
             try
             {
-                await _climateService.GetClimateService(climate);
+                Climate = await _climateService.GetClimateService(climate);;
             }
             catch (Exception ex)
             {

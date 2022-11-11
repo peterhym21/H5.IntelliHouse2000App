@@ -7,6 +7,7 @@
              x:DataType="viewmodel:ClimateViewModel"
              Title="Climate Bedroom">
 
+
     <VerticalStackLayout Spacing="10">
         <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
             <Frame Grid.Column="0" Padding="10" Style="{StaticResource CardView}">
@@ -63,6 +64,15 @@
                 </VerticalStackLayout>
             </Frame>
         </Grid>
+
+        <Button Text="Set Temperture"
+                        Command="{Binding GetClimateCommand}"
+                        CommandParameter="{Binding Climate}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonOutline}"
+                        Margin="8"/>
 
     </VerticalStackLayout>
 

@@ -27,6 +27,6 @@ public partial class ClimateLivingroom : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        _viewModelClimate.GetClimateAsynceCommand.Execute(_viewModelClimate.Climate);
+        _viewModelClimate.GetClimateCommand.Execute(_viewModelClimate.Climate);
     }
 }
