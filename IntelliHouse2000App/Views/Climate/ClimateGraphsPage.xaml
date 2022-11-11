@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IntelliHouse2000App.Views.ClimateGraphsPage"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
-             xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels.Climate"
+             xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels"
              x:DataType="climate:ClimateGraphsPageViewModel">
 
     <!-- <ContentView> -->
