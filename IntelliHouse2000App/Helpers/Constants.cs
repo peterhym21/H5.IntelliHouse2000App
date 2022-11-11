@@ -17,4 +17,8 @@ public static class Constants
     public const string AlarmArmedSubject = "AlarmArmed";
     public const string AlarmPartiallyArmedSubject = "AlarmPartiallyArmed";
     public const string AlarmFullyArmedSubject = "AlarmFullyArmed";
+
+    public const string MqttConnectedSubject = "MqttConnected";
+    public const string MqttDisconnectedSubject = "MqttDisconnected";
+    public const string MqttMessageReceivedSubject = "MqttMessageReceived";
 }

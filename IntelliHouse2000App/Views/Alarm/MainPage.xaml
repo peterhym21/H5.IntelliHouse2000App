@@ -16,14 +16,18 @@
               Grid.Column="0" Grid.ColumnSpan="3"
               ColumnSpacing="20" Margin="20,0"
               Grid.Row="1">
+            <Label IsVisible="{Binding InternetAccess}">Connnected</Label>
             <Button Text="Disarm"
                     Grid.Column="0"
+                    IsEnabled="False"
                     Command="{Binding DisarmCommand}"></Button>
             <Button Text="Partially arm"
                     Grid.Column="1"
+                    IsEnabled="{Binding InternetAccess}"
                     Command="{Binding PartiallyArmCommand}"></Button>
             <Button Text="Fully arm"
                     Grid.Column="2"
+                    IsEnabled="{Binding InternetAccess}"
                     Command="{Binding FullyArmCommand}"></Button>
         </Grid>
     </Grid>

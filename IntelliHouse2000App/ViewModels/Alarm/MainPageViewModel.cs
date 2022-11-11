@@ -7,9 +7,35 @@ namespace IntelliHouse2000App.ViewModels;
 public partial class MainPageViewModel : ObservableObject
 {
     private readonly IAlarmService _alarmService;
-    public MainPageViewModel(IAlarmService alarmService)
+    private readonly IMQTTService _mqttService;
+    private readonly IConnectivity _connectivity;
+    public MainPageViewModel(IAlarmService alarmService, IMQTTService mqttService, IConnectivity connectivity)
     {
         _alarmService = alarmService;
+        _mqttService = mqttService;
+        _connectivity = connectivity;
+        _internetAccess = HasInternetConnection();
+
+        _connectivity.ConnectivityChanged += (sender, args) =>
+        {
+            _internetAccess = args.NetworkAccess == NetworkAccess.Internet && mqttService.IsConnected();
+        };
+        
+        MessagingCenter.Subscribe<MqttService>(this, Constants.MqttDisconnectedSubject, service =>
+        {
+            _internetAccess = HasInternetConnection();
+        });
+        MessagingCenter.Subscribe<MqttService>(this, Constants.MqttConnectedSubject, service =>
+        {
+            _internetAccess = HasInternetConnection();
+        });
+    }
+
+    [ObservableProperty]
+    private bool _internetAccess = false;
+    private bool HasInternetConnection()
+    {
+        return _mqttService.IsConnected() && _connectivity.NetworkAccess == NetworkAccess.Internet;
     }
     
     [RelayCommand]
