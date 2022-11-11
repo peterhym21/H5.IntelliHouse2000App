@@ -19,6 +19,7 @@ public partial class LogPageViewModel : ObservableObject
     [RelayCommand]
     public async Task GetCriticalLogsAsync()
     {
+<<<<<<< HEAD
         var logs = await _repository.GetAsync<List<LogMessage>>(new Uri(Constants.ApiBaseUrl + "critical"));
         LogMessages = new ObservableCollection<LogMessage>(logs.Take(10));
     }
@@ -35,5 +36,9 @@ public partial class LogPageViewModel : ObservableObject
     {
         var logs = await _repository.GetAsync<List<LogMessage>>(new Uri(Constants.ApiBaseUrl + "system"));
         LogMessages = new ObservableCollection<LogMessage>(logs.Take(10));
+=======
+        var something = await _repository.GetAsync<List<LogMessage>>(new Uri(Constants.ApiBaseUrl + "critical"));
+        LogMessages = new ObservableCollection<LogMessage>(something);
+>>>>>>> develop
     }
 }

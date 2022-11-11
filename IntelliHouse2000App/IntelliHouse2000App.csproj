@@ -49,15 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Models\Climate\Cilamte.txt" />
 	  <None Remove="Services\Climate\Cilamte.txt" />
-	  <None Remove="ViewModels\Climate\Cilamte.txt" />
 	  <None Remove="Views\Climate\Cilamte.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Models\Climate\Cilamte.txt" />
 	  <Compile Include="Services\Climate\Cilamte.txt" />
+<<<<<<< HEAD
 	  <Compile Include="ViewModels\Climate\Cilamte.txt" />
 	  <Compile Update="Views\Home\LogMainPage.xaml.cs">
 	    <DependentUpon>LogMainPage.xaml</DependentUpon>
@@ -71,6 +69,8 @@
 	    <DependentUpon>SystemLogPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
+=======
+>>>>>>> develop
 	</ItemGroup>
 
 	<ItemGroup>
@@ -110,7 +110,6 @@
 	  <PackageReference Include="MQTTnet" Version="3.1.1" />
 	  <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.1" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-
 	</ItemGroup>
 
 </Project>
