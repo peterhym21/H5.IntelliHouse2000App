@@ -8,10 +8,6 @@ public class HttpsClientHandlerService : IHttpsClientHandlerService
         var handler = new CustomAndroidMessageHandler();
         handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
         {
-<<<<<<< HEAD
-=======
-            // if (cert != null && cert.Issuer.Equals("CN=localhost"))
->>>>>>> develop
                 return true;
         };
         return handler;
@@ -46,10 +42,6 @@ public class HttpsClientHandlerService : IHttpsClientHandlerService
 #elif IOS
         public bool IsHttpsLocalhost(NSUrlSessionHandler sender, string url, Security.SecTrust trust)
         {
-<<<<<<< HEAD
-=======
-            // if (url.StartsWith("https://localhost"))
->>>>>>> develop
                 return true;
         }
 #endif
