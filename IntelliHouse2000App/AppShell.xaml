@@ -3,19 +3,20 @@
     x:Class="IntelliHouse2000App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:IntelliHouse2000App"
     xmlns:view="clr-namespace:IntelliHouse2000App.Views"
-    Shell.FlyoutBehavior="Flyout">
+    FlyoutBehavior="Flyout">
 
     <FlyoutItem></FlyoutItem>
     <ShellContent
             Title="Home"
-            ContentTemplate="{DataTemplate view:MainPage}"/>
-
-    <ShellContent 
-            Title="Alarm"
-            ContentTemplate="{DataTemplate view:LogPage}" />
-
+            ContentTemplate="{DataTemplate view:MainPage}"/>    
+                    <ShellContent 
+                            Title="Logs"
+                            ContentTemplate="{DataTemplate view:LogMainPage}" />
+    
+    
+    
+    
     <ShellContent 
             Title="Climate Kitchen"
             ContentTemplate="{DataTemplate view:ClimateKitchen}" />

@@ -46,7 +46,6 @@ public class GenericRepository : IGenericRepository
             {
                 string content = await response.Content.ReadAsStringAsync();
                 result = JsonSerializer.Deserialize<T>(content, _serializerOptions);
-                // result = JsonSerializer.Deserialize<T>(content);
                 Debug.WriteLine(@"+++++ Item(s) successfully received.");
             }
         }

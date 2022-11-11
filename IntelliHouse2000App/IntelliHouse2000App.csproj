@@ -54,7 +54,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Services\Climate\Cilamte.txt" />
+	  <Compile Update="Views\Home\LogMainPage.xaml.cs">
+	    <DependentUpon>LogMainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Home\InfoLogPage.xaml.cs">
+	    <DependentUpon>InfoLogPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\Home\SystemLogPage.xaml.cs">
+	    <DependentUpon>SystemLogPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -73,7 +84,19 @@
 	  <MauiXaml Update="Views\Climate\ClimateKitchen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Home\LogPage.xaml">
+	  <MauiXaml Update="Views\Home\CriticalLogPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\LogMainPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\InfoLogPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\SystemLogPage.xaml">
+	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
