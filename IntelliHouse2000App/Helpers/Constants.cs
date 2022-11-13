@@ -1,15 +1,16 @@
+using SQLite;
+
 namespace IntelliHouse2000App;
 
 public static class Constants
 {
-    private static string _baseMQTTUrl = "server.tved.it";
-    private static string _baseAPIUrl = "mqtt-api.tved.it";
-    private static string _schema = "https";
-    private static string _apiPort = "443";
-    // private static string _mqttPort = "1883";
+    private const string BaseMqttUrl = "server.tved.it";
+    private const string BaseApiUrl = "mqtt-api.tved.it";
+    private const string Schema = "https";
+    private const string ApiPort = "443";
 
-    public static string ApiBaseUrl = $"{_schema}://{_baseAPIUrl}:{_apiPort}/";
-    public static string MqttBaseUrl = $"{_baseMQTTUrl}";
+    public const string ApiBaseUrl = $"{Schema}://{BaseApiUrl}:{ApiPort}/";
+    public const string MqttBaseUrl = $"{BaseMqttUrl}";
 
     public const string mqttUser = "ardui";
     public const string mqttPass = "s1hif-xp!sT-qCuwu";
@@ -21,4 +22,12 @@ public static class Constants
     public const string MqttConnectedSubject = "MqttConnected";
     public const string MqttDisconnectedSubject = "MqttDisconnected";
     public const string MqttMessageReceivedSubject = "MqttMessageReceived";
+    
+    private const string DatabaseFilename = "Intelli2k.db3";
+    public const SQLiteOpenFlags Flags =
+        SQLiteOpenFlags.ReadWrite |
+        SQLiteOpenFlags.Create |
+        SQLiteOpenFlags.SharedCache;
+
+    public static string DatabasePath => Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 }
