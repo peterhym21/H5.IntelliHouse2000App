@@ -4,13 +4,14 @@ using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Models;
 using IntelliHouse2000App.Services;
 using System.Collections.ObjectModel;
+using IntelliHouse2000App.Services.Connectivity;
 
 namespace IntelliHouse2000App.ViewModels
 {
     public partial class ClimateViewModel : BaseViewModel
     {
         private readonly ClimateService _climateService;
-        public ClimateViewModel(ClimateService climateService)
+        public ClimateViewModel(ClimateService climateService, IConnectivityService connectivityService) : base(connectivityService)
         {
             _climateService = climateService;
         }

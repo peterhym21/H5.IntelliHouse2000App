@@ -3,17 +3,18 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Models;
 using IntelliHouse2000App.Repository;
+using IntelliHouse2000App.Services.Connectivity;
 
 namespace IntelliHouse2000App.ViewModels;
 
-public partial class ClimateGraphsPageViewModel : ObservableObject
+public partial class ClimateGraphsPageViewModel : BaseViewModel
 {
     [ObservableProperty] public List<Measurements> kitchenValues = new ();
     [ObservableProperty] public List<Measurements> bedroomValues = new ();
     [ObservableProperty] public List<Measurements> livingroomValues = new ();
     private readonly IGenericRepository _repository;
 
-    public ClimateGraphsPageViewModel(IGenericRepository repo)
+    public ClimateGraphsPageViewModel(IGenericRepository repo, IConnectivityService connectivityService) : base(connectivityService)
     {
         _repository = repo;
     }

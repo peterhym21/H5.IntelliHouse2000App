@@ -3,15 +3,16 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Models;
 using IntelliHouse2000App.Repository;
+using IntelliHouse2000App.Services.Connectivity;
 
 namespace IntelliHouse2000App.ViewModels.Home;
 
-public partial class LogPageViewModel : ObservableObject
+public partial class LogPageViewModel : BaseViewModel
 {
     [ObservableProperty] public ObservableCollection<LogMessage> logMessages;
     private readonly IGenericRepository _repository;
 
-    public LogPageViewModel(IGenericRepository repository)
+    public LogPageViewModel(IGenericRepository repository, IConnectivityService connectivityService) : base(connectivityService)
     {
         _repository = repository;
     }
