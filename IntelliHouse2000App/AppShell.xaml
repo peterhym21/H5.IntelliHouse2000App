@@ -9,27 +9,14 @@
     <FlyoutItem></FlyoutItem>
     <ShellContent
             Title="Home"
-            ContentTemplate="{DataTemplate view:MainPage}"/>    
-                    <ShellContent 
-                            Title="Logs"
-                            ContentTemplate="{DataTemplate view:LogMainPage}" />
-    
-    
-    
+            ContentTemplate="{DataTemplate view:MainPage}"/>
     
     <ShellContent 
-            Title="Climate Kitchen"
-            ContentTemplate="{DataTemplate view:ClimateKitchen}" />
+            Title="Logs"
+            ContentTemplate="{DataTemplate view:LogMainPage}" />
 
-    <ShellContent 
-            Title="Climate Livingroom"
-            ContentTemplate="{DataTemplate view:ClimateLivingroom}" />
-
-    <ShellContent 
-            Title="Climate Bedroom"
-            ContentTemplate="{DataTemplate view:ClimateBedroom}" />
     <ShellContent
-            Title="Graphs"
+            Title="Climate"
             ContentTemplate="{DataTemplate view:ClimateGraphsPage}" />
 
 </Shell>
