@@ -28,7 +28,8 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"kitchen?ts={timeStamp}"));
-        if (logs != null)
+        if (logs == null) GetOldValues();
+        else
         {
             KitchenValues = logs.OrderBy(t => t.Timestamp).ToList();            
             for (int i = 0; i < 10; i++)
@@ -37,8 +38,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
                 Preferences.Set($"KitchenTemp{i}", logs[i].Temperature);
                 Preferences.Set($"KitchenHumidity{i}", logs[i].Humidity);
             }
-        }
-        else await GetOldValuesAsync();
+        } 
     }
 
     [RelayCommand]
@@ -47,7 +47,8 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"livingroom?ts={timeStamp}"));
-        if (logs != null)
+        if (logs == null) GetOldValues();
+        else
         {
             LivingroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
             for (int i = 0; i < 10; i++)
@@ -57,7 +58,6 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
                 Preferences.Set($"LivingroomHumidity{i}", logs[i].Humidity);
             }
         }
-        else await GetOldValuesAsync();
     }
 
     [RelayCommand]
@@ -66,7 +66,8 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"bedroom?ts={timeStamp}"));
-        if (logs != null)
+        if (logs == null) GetOldValues();
+        else
         {
             BedroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
             for (int i = 0; i < 10; i++)
@@ -76,19 +77,19 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
                 Preferences.Set($"BedroomHumidity{i}", logs[i].Humidity);
             }
         }
-        else await GetOldValuesAsync();
     }
 
-    private async Task GetOldValuesAsync()
+    private void GetOldValues()
     {
         KitchenValues = new List<Measurements>();
         BedroomValues = new List<Measurements>();
         LivingroomValues = new List<Measurements>();
+        
         for (int i = 0; i < 10; i++)
         {
             KitchenValues.Add(new Measurements()
             {
-                Timestamp = Preferences.Get($"KitchenTS{i}", DateTime.Now),
+                Timestamp = Preferences.Get($"KitchenTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"KitchenTemp{i}", i * 10),
                 Humidity = Preferences.Get($"KitchenHumidity{i}", (i+100)/10)
             });
@@ -97,7 +98,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         {
             BedroomValues.Add(new Measurements()
             {
-                Timestamp = Preferences.Get($"BedroomTS{i}", DateTime.Now),
+                Timestamp = Preferences.Get($"BedroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"BedroomTemp{i}", i * 10),
                 Humidity = Preferences.Get($"BedroomHumidity{i}", (i+100)/10)
             });
@@ -106,7 +107,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         {
             LivingroomValues.Add(new Measurements()
             {
-                Timestamp = Preferences.Get($"LivingroomTS{i}", DateTime.Now),
+                Timestamp = Preferences.Get($"LivingroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"LivingroomTemp{i}", i * 10),
                 Humidity = Preferences.Get($"LivingroomHumidity{i}", (i+100)/10)
             });

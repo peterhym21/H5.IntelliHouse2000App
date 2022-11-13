@@ -68,9 +68,9 @@ public partial class LogPageViewModel : BaseViewModel
             {
                 LogMessages.Add(new LogMessage
                 {
-                    Message = Preferences.Get($"CritMes{i}", "No message found"),
-                    Timestamp = Preferences.Get($"CritTS{i}", DateTime.Now),
-                    Client = Preferences.Get($"CritSend{i}", "System")
+                    Message = Preferences.Get($"InfoMes{i}", "No message found"),
+                    Timestamp = Preferences.Get($"InfoTS{i}", DateTime.Now),
+                    Client = Preferences.Get($"InfoSend{i}", "System")
                 });
             }
         }
