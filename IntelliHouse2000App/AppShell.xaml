@@ -9,14 +9,11 @@
     <FlyoutItem></FlyoutItem>
     <ShellContent
             Title="Home"
-            ContentTemplate="{DataTemplate view:MainPage}"/>
-    
-    <ShellContent 
+            ContentTemplate="{DataTemplate view:MainPage}"/>    
+    <ShellContent   
             Title="Logs"
             ContentTemplate="{DataTemplate view:LogMainPage}" />
-
     <ShellContent
             Title="Climate"
             ContentTemplate="{DataTemplate view:ClimateGraphsPage}" />
-
 </Shell>
