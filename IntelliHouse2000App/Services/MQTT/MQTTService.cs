@@ -15,9 +15,9 @@ public class MqttService : IMQTTService
     private IMqttClient _mqttClient;
     private IMqttClientOptions _mqttClientOptions;
 
-    public event EventHandler<MqttClientConnectedEventArgs> Connected;
-    public event EventHandler<MqttClientDisconnectedEventArgs> Disconnected;
-    public event EventHandler<MqttApplicationMessageReceivedEventArgs> MessageReceived;
+    private event EventHandler<MqttClientConnectedEventArgs> Connected;
+    private event EventHandler<MqttClientDisconnectedEventArgs> Disconnected;
+    private event EventHandler<MqttApplicationMessageReceivedEventArgs> MessageReceived;
 
     public MqttService()
     {
@@ -33,6 +33,9 @@ public class MqttService : IMQTTService
             .Build());
         
         var _ = Task.Run(async () => await Connect()).Result;
+        Connected += (sender, args) => MessagingCenter.Send(this, Constants.MqttConnectedSubject);
+        Disconnected += (sender, args) => MessagingCenter.Send(this, Constants.MqttDisconnectedSubject);
+        MessageReceived += (sender, args) => MessagingCenter.Send(this, Constants.MqttMessageReceivedSubject);
     }
     private string GenerateUniqueClientId()
     {

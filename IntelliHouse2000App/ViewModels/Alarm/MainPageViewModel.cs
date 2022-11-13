@@ -1,13 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Services;
+using IntelliHouse2000App.Services.Connectivity;
+using Microsoft.Maui.Controls.Internals;
 
 namespace IntelliHouse2000App.ViewModels;
 
-public partial class MainPageViewModel : ObservableObject
+public partial class MainPageViewModel : BaseViewModel
 {
     private readonly IAlarmService _alarmService;
-    public MainPageViewModel(IAlarmService alarmService)
+    public MainPageViewModel(IAlarmService alarmService, IConnectivityService connectivityService) : base(connectivityService)
     {
         _alarmService = alarmService;
     }

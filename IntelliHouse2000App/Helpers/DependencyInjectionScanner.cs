@@ -11,6 +11,8 @@ public static class DependencyInjectionScanner
         builder.Services.AddByNamespace("IntelliHouse2000App.Services");
         builder.Services.AddByNamespace("IntelliHouse2000App.ViewModels");
         builder.Services.AddByNamespace("IntelliHouse2000App.Views");
+        
+        builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
     }
     
     /// <summary>
