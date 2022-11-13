@@ -52,7 +52,7 @@ Build master and slave units for the *Intelligent house* - the master unit must 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Architecture diagram
-![architecture diagram](/Docs/Architecture_Diagram.png)
+![architecture diagram](/Docs/Architecture_Diagram.drawio.png)
 
 
 
