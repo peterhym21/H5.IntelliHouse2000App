@@ -66,7 +66,5 @@
                 </VerticalStackLayout>
             </Frame>
         </Grid>
-
-
     </StackLayout>
 </ContentPage>
