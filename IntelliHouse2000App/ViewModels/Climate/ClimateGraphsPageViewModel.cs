@@ -28,7 +28,17 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"kitchen?ts={timeStamp}"));
-        KitchenValues = logs.OrderBy(t => t.Timestamp).ToList();
+        if (logs != null)
+        {
+            KitchenValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            for (int i = 0; i < 10; i++)
+            {
+                Preferences.Set($"KitchenTS{i}", logs[i].Timestamp);
+                Preferences.Set($"KitchenTemp{i}", logs[i].Temperature);
+                Preferences.Set($"KitchenHumidity{i}", logs[i].Humidity);
+            }
+        }
+        else await GetOldValuesAsync();
     }
 
     [RelayCommand]
@@ -37,7 +47,17 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"livingroom?ts={timeStamp}"));
-        LivingroomValues = logs.OrderBy(t => t.Timestamp).ToList();
+        if (logs != null)
+        {
+            LivingroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            for (int i = 0; i < 10; i++)
+            {
+                Preferences.Set($"LivingroomTS{i}", logs[i].Timestamp);
+                Preferences.Set($"LivingroomTemp{i}", logs[i].Temperature);
+                Preferences.Set($"LivingroomHumidity{i}", logs[i].Humidity);
+            }
+        }
+        else await GetOldValuesAsync();
     }
 
     [RelayCommand]
@@ -46,7 +66,51 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         DateTime timeStamp = ts ?? DateTime.Now;
 
         var logs = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + $"bedroom?ts={timeStamp}"));
-        BedroomValues = logs.OrderBy(t => t.Timestamp).ToList();
+        if (logs != null)
+        {
+            BedroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            for (int i = 0; i < 10; i++)
+            {
+                Preferences.Set($"BedroomTS{i}", logs[i].Timestamp);
+                Preferences.Set($"BedroomTemp{i}", logs[i].Temperature);
+                Preferences.Set($"BedroomHumidity{i}", logs[i].Humidity);
+            }
+        }
+        else await GetOldValuesAsync();
+    }
+
+    private async Task GetOldValuesAsync()
+    {
+        KitchenValues = new List<Measurements>();
+        BedroomValues = new List<Measurements>();
+        LivingroomValues = new List<Measurements>();
+        for (int i = 0; i < 10; i++)
+        {
+            KitchenValues.Add(new Measurements()
+            {
+                Timestamp = Preferences.Get($"KitchenTS{i}", DateTime.Now),
+                Temperature = Preferences.Get($"KitchenTemp{i}", i * 10),
+                Humidity = Preferences.Get($"KitchenHumidity{i}", (i+100)/10)
+            });
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            BedroomValues.Add(new Measurements()
+            {
+                Timestamp = Preferences.Get($"BedroomTS{i}", DateTime.Now),
+                Temperature = Preferences.Get($"BedroomTemp{i}", i * 10),
+                Humidity = Preferences.Get($"BedroomHumidity{i}", (i+100)/10)
+            });
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            LivingroomValues.Add(new Measurements()
+            {
+                Timestamp = Preferences.Get($"LivingroomTS{i}", DateTime.Now),
+                Temperature = Preferences.Get($"LivingroomTemp{i}", i * 10),
+                Humidity = Preferences.Get($"LivingroomHumidity{i}", (i+100)/10)
+            });
+        }
     }
 
 
