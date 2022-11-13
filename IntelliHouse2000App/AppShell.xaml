@@ -10,13 +10,9 @@
     <ShellContent
             Title="Home"
             ContentTemplate="{DataTemplate view:MainPage}"/>    
-                    <ShellContent 
-                            Title="Logs"
-                            ContentTemplate="{DataTemplate view:LogMainPage}" />
-    
-    
-    
-    
+    <ShellContent   
+            Title="Logs"
+            ContentTemplate="{DataTemplate view:LogMainPage}" />
     <ShellContent 
             Title="Climate Kitchen"
             ContentTemplate="{DataTemplate view:ClimateKitchen}" />
