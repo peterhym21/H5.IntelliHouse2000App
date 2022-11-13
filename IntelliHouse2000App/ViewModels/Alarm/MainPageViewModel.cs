@@ -15,23 +15,23 @@ public partial class MainPageViewModel : BaseViewModel
     }
     
     [RelayCommand]
-    public void Disarm()
+    public async Task DisarmAsync()
     {
-        _alarmService.SetArmed(ArmedState.Disarmed);
-        MessagingCenter.Send(this, Constants.AlarmArmedSubject);
+        bool success = await _alarmService.SetArmedAsync(ArmedState.Disarmed);
+        MessagingCenter.Send(this, Constants.AlarmArmedSubject, success);
+    }
+
+    [RelayCommand]
+    public async Task PartiallyArmAsync()
+    {
+        bool success = await _alarmService.SetArmedAsync(ArmedState.PartiallyArmed);
+        MessagingCenter.Send(this, Constants.AlarmPartiallyArmedSubject, success);
     }
     
     [RelayCommand]
-    public void PartiallyArm()
+    public async Task FullyArmAsync()
     {
-        _alarmService.SetArmed(ArmedState.PartiallyArmed);
-        MessagingCenter.Send(this, Constants.AlarmPartiallyArmedSubject);
-    }
-    
-    [RelayCommand]
-    public void FullyArm()
-    {
-        _alarmService.SetArmed(ArmedState.FullyArmed);
-        MessagingCenter.Send(this, Constants.AlarmFullyArmedSubject);
+        bool success = await _alarmService.SetArmedAsync(ArmedState.FullyArmed);
+        MessagingCenter.Send(this, Constants.AlarmFullyArmedSubject, success);
     }
 }
