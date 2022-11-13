@@ -24,8 +24,12 @@ namespace IntelliHouse2000App.Services
         {
             DateTime timeStamp =  DateTime.Now;
             List<Measurements> measurements = await _repository.GetAsync<List<Measurements>>(new Uri(Constants.ApiBaseUrl + climate.Room + $"?ts={timeStamp.ToString("yyyy-MM-dd")}"));
-            climate.Temp = measurements.FirstOrDefault().Temperature;
-            climate.Humid = measurements.FirstOrDefault().Humidity;
+            if (measurements != null && measurements.Count > 0)
+            {
+                climate.Temp = measurements.FirstOrDefault().Temperature;
+                climate.Humid = measurements.FirstOrDefault().Humidity;
+            }
+
             return climate;
         }
 
