@@ -29,13 +29,12 @@
 
 
 # Case
-Build a APP for the Intelligent Hous 
+Build a APP for the [Intelligent House](https://github.com/Thoroughbreed/H5_Embedded_Project)
 
 - Home page for alarm
 - Page for log with 3 tabs for 3 log-levels
 - Page for climate with 3 tabs for 3 rooms
 
-- [Intelligent House](https://github.com/Thoroughbreed/H5_Embedded_Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
