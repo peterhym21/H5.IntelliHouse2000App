@@ -86,6 +86,22 @@ And uses FBF (Folder By Feature)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+# API Calls
+
+Bais URL : https://mqtt-api.tved.it/
+
+- /
+- /all
+- /info
+- /debug
+- /system
+- /critical
+- /kitchen
+- /bedroom
+- /livingroom
+- /airq
+
+
 # MessageCenter
 | Topics								| Method	|
 | :------------------------------------ | :-------- |
