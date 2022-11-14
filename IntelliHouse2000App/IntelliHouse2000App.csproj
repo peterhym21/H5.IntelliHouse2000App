@@ -98,33 +98,9 @@
 			<DependentUpon>MainPage.xaml</DependentUpon>
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\Climate\ClimateLivingroom.xaml.cs">
-			<DependentUpon>ClimateLivingroom.xaml</DependentUpon>
-			<SubType>Code</SubType>
-		</Compile>
-		<Compile Update="Views\Climate\ClimateBedroom.xaml.cs">
-			<DependentUpon>ClimateBedroom.xaml</DependentUpon>
-			<SubType>Code</SubType>
-		</Compile>
-		<Compile Update="Views\Climate\ClimateKitchen.xaml.cs">
-			<DependentUpon>ClimateKitchen.xaml</DependentUpon>
-			<SubType>Code</SubType>
-		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-		<MauiXaml Update="Views\Climate\ClimateLivingroom.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\Climate\ClimateBedroom.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\Climate\ClimateKitchen.xaml">
-			<SubType>Designer</SubType>
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
 		<MauiXaml Update="Views\Home\CriticalLogPage.xaml">
 			<SubType>Designer</SubType>
 			<Generator>MSBuild:Compile</Generator>
@@ -155,15 +131,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Climate\ClimateLivingroom.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Climate\ClimateBedroom.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Climate\ClimateKitchen.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Home\CriticalLogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

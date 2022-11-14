@@ -23,11 +23,11 @@ public static class Constants
     public const string MqttDisconnectedSubject = "MqttDisconnected";
     public const string MqttMessageReceivedSubject = "MqttMessageReceived";
     
-    private const string DatabaseFilename = "Intelli2k.db3";
-    public const SQLiteOpenFlags Flags =
-        SQLiteOpenFlags.ReadWrite |
-        SQLiteOpenFlags.Create |
-        SQLiteOpenFlags.SharedCache;
-
-    public static string DatabasePath => Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+    // private const string DatabaseFilename = "Intelli2k.db3";
+    // public const SQLiteOpenFlags Flags =
+    //     SQLiteOpenFlags.ReadWrite |
+    //     SQLiteOpenFlags.Create |
+    //     SQLiteOpenFlags.SharedCache;
+    //
+    // public static string DatabasePath => Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 }

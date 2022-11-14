@@ -1,13 +1,15 @@
-﻿namespace IntelliHouse2000App.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace IntelliHouse2000App.Models
 {
-    public class Climate
+    public partial class Climate : ObservableObject
     {
-        public string Room { get; set; }
-        public decimal Temp { get; set; }
-        public int SetTemp { get; set; }
-        public double Humid { get; set; }
-        public int SetHumid { get; set; }
-        public int Airquality { get; set; }
+        [ObservableProperty]
+        private string room;
+        [ObservableProperty]
+        private int setTemp;
+        [ObservableProperty]
+        private int setHumid;
 
 
     }
