@@ -17,7 +17,7 @@
 	- [Optionel Requirements](##Optionel-Requirements)
 - [Architecture diagram](#architecture-diagram)
 - [Summary and rundown](#summary-and-rundown)
-- [Getting started](#getting-started)
+- [Folder Structure](#Folder-Structure)
 - [MessageCenter](#MessageCenter)
 - [MQTT Topics](#mqtt-topics)
 - [Libraries](#libraries)
@@ -74,7 +74,8 @@ All of this is then displayed on the App for the **IntelliHouse2000**, **Intelli
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-# Folder Struckture
+# Folder Structure
+![Folder structure]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
