@@ -139,7 +139,9 @@ Then add a new view to the App with a service to get the new data, use the exsis
 
 # App Pages
 
-![Home Page <img src="/Docs/HomePageApp.png" width="250"/>](/Docs/HomePageApp.png)
+<img src="/Docs/HomePageApp.png" width="50%"/>
+
+![Home Page](/Docs/HomePageApp.png)
 
 ![Log Page](/Docs/LogPageApp.png)
 
