@@ -18,6 +18,7 @@
 - [Architecture diagram](#architecture-diagram)
 - [Summary and rundown](#summary-and-rundown)
 - [Folder Structure](#Folder-Structure)
+- [API Calls](#API-Calls)
 - [MessageCenter](#MessageCenter)
 - [MQTT Topics](#mqtt-topics)
 - [Libraries](#libraries)
