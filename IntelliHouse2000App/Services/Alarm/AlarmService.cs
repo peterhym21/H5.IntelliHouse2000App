@@ -11,8 +11,8 @@ public class AlarmService : IAlarmService
     {
         _mqttService = mqttService;
     }
-
-    public Task<bool> SetArmedAsync(ArmedState state)
+    
+    public void SetArmed(ArmedState state)
     {
         string payload = state switch
         {
@@ -22,7 +22,7 @@ public class AlarmService : IAlarmService
             _ => throw new ArgumentOutOfRangeException(nameof(state), "Value was not a valid arm state")
         };
         
-        return _mqttService.Publish(new MqttApplicationMessage()
+        _mqttService.Publish(new MqttApplicationMessage()
         {
             Topic = "home/alarm/arm",
             Payload = Encoding.UTF8.GetBytes(payload),
