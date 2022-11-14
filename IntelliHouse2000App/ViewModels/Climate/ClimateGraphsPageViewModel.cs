@@ -85,33 +85,40 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         KitchenValues = new ObservableCollection<Measurements>();
         BedroomValues = new ObservableCollection<Measurements>();
         LivingroomValues = new ObservableCollection<Measurements>();
-        
+        int j = 9;
         for (int i = 0; i < 10; i++)
         {
             KitchenValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"KitchenTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"KitchenTemp{i}", i * 10),
-                Humidity = Preferences.Get($"KitchenHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"KitchenHumidity{i}", j * 10)
             });
+            j--;
         }
+
+        j = 9;
         for (int i = 0; i < 10; i++)
         {
             BedroomValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"BedroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"BedroomTemp{i}", i * 10),
-                Humidity = Preferences.Get($"BedroomHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"BedroomHumidity{i}", j * 10)
             });
+            j--;
         }
+
+        j = 9;
         for (int i = 0; i < 10; i++)
         {
             LivingroomValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"LivingroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"LivingroomTemp{i}", i * 10),
-                Humidity = Preferences.Get($"LivingroomHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"LivingroomHumidity{i}", j * 10)
             });
+            j--;
         }
     }
 

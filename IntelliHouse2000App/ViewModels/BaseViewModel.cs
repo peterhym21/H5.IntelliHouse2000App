@@ -11,12 +11,10 @@ namespace IntelliHouse2000App.ViewModels
         }
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(HasNoInternetAccess))]
-        private bool _hasInternetAccess = false;
+        private bool _hasInternetAccess;
     
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(HasNoMQTTAccess))]
-        private bool _hasMQTTAccess = false;
+        private bool _hasMQTTAccess;
         
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsNotBusy))]
@@ -26,7 +24,5 @@ namespace IntelliHouse2000App.ViewModels
         private string title;
 
         public bool IsNotBusy => !IsBusy;
-        public bool HasNoMQTTAccess => !HasMQTTAccess;
-        public bool HasNoInternetAccess => !HasInternetAccess;
     }
 }
