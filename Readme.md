@@ -14,6 +14,7 @@
 
 - [Case](#case)
 - [Requirements](#requirements)
+- - [Optionel Requirements](#Optionel Requirements)
 - [Architecture diagram](#architecture-diagram)
 - [Roadmap](#roadmap)
 - [Summary and rundown](#summary-and-rundown)
@@ -26,14 +27,10 @@
 </details>
 
 # Case
-Build master and slave units for the *Intelligent house* - the master unit must be the "heart" of the communication, and control several functions around the house via the slave units.
-* Perimeter alarm system
-* Internal alarm system
-* Climate control
-* Gas detection
-* Entry system
-* User-friendly interaction
-* General smart-home functions (lights, doors, etc.)
+Build a APP for the Intelligent Hous 
+- [Intelligent House](https://github.com/Thoroughbreed/H5_Embedded_Project)
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Requirements
@@ -45,7 +42,7 @@ Build master and slave units for the *Intelligent house* - the master unit must 
 - [X] Er robust overfor ustabil netforbindelse.
 - [x] Projektet afleveres i Github med en god Readme-fil og præsenteres for klassen. Readme-filen markerer også hvilke mål, der er nået.
 
-## Optionelle krav
+## Optionel Requirements
 
 - [x] Mulighed for at kunne vælge forskellige målesessions, f.eks. svarende til forskellige rum i huset.
 - [x] Man kan også ønske sig en alarm, der adviserer om at temperaturen er kommet udenfor en given grænse.
