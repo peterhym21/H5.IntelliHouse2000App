@@ -19,6 +19,7 @@
 - [Roadmap](#roadmap)
 - [Summary and rundown](#summary-and-rundown)
 - [Getting started](#getting-started)
+- [MessageCenter](#MessageCenter)
 - [MQTT Topics](#mqtt-topics)
 - [Libraries](#libraries)
 - [Components](#components)
@@ -84,6 +85,19 @@ Make sure to read the setup for each device, some communicate by one-wire (like 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+# MessageCenter
+| Topics								| Method	|
+| :------------------------------------ | :-------- |
+| AlarmArmedSubject						| Pub/Sub	|
+| AlarmPartiallyArmedSubject			| Pub/Sub	|
+| AlarmFullyArmedSubject				| Pub/Sub	|
+| Set-Humid								| Pub/Sub	|
+| Set-Temp								| Pub/Sub	|
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 # MQTT Topics
 | Topics                               | Access   | Method  |
@@ -96,6 +110,8 @@ Make sure to read the setup for each device, some communicate by one-wire (like 
 | home/climate/servo                   | External | Pub     |
 | home/log/[logLevel]/[type]           | Internal | Pub     |
 | home/log/#                           | External | Sub     |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 # Libraries
 
