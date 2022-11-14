@@ -6,14 +6,30 @@ namespace IntelliHouse2000App.Views;
 [LifeTime(ServiceLifetime.Singleton)]
 public partial class MainPage : ContentPage
 {
+	private readonly MainPageViewModel _vm;
 	public MainPage(MainPageViewModel vm)
 	{
 		InitializeComponent();
-		BindingContext = vm;
-		
-		MessagingCenter.Subscribe<MainPageViewModel>(this, Constants.AlarmArmedSubject, _ => DisplayAlert("Alarm", "Alarm has been armed", "Ok", "Cancel"));
-		MessagingCenter.Subscribe<MainPageViewModel>(this, Constants.AlarmPartiallyArmedSubject, _ => DisplayAlert("Alarm", "Alarm has been partially armed", "Ok", "Cancel"));
-		MessagingCenter.Subscribe<MainPageViewModel>(this, Constants.AlarmFullyArmedSubject, _ => DisplayAlert("Alarm", "Alarm has been fully armed", "Ok", "Cancel"));
-	}
-}
 
+		_vm = vm;
+        BindingContext = vm;
+		
+		MessagingCenter.Subscribe<MainPageViewModel, bool>(this, Constants.AlarmArmedSubject, OnAlarmArmed);
+		MessagingCenter.Subscribe<MainPageViewModel, bool>(this, Constants.AlarmPartiallyArmedSubject, OnAlarmPartiallyArmed);
+		MessagingCenter.Subscribe<MainPageViewModel, bool>(this, Constants.AlarmFullyArmedSubject, OnAlarmFullyArmed);
+	}
+
+	private void OnAlarmFullyArmed(MainPageViewModel sender, bool success)
+	{
+		if (success) DisplayAlert("Alarm", "Alarm has been fully armed", "Ok");
+    }
+	private void OnAlarmPartiallyArmed(MainPageViewModel sender, bool success)
+	{
+        if (success) DisplayAlert("Alarm", "Alarm has been partially armed", "Ok");
+
+    }
+	private void OnAlarmArmed(MainPageViewModel sender, bool success)
+	{
+        if (success) DisplayAlert("Alarm", "Alarm has been armed", "Ok");
+    }
+}
