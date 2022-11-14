@@ -136,6 +136,15 @@ Then add a new view to the App with a service to get the new data, use the exsis
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+# App Pages
+
+![Home Page](/Docs/HomePageApp.png)
+
+![Log Page](/Docs/LogPageApp.png)
+
+![Home Page](/Docs/ClimatePageApp.png)
+
+
 # License
 * Hardware: CC-BY-LA (Creative Commons)
 * API: GPLv3
