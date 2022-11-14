@@ -32,11 +32,4 @@ public partial class MainPage : ContentPage
 	{
         if (success) DisplayAlert("Alarm", "Alarm has been armed", "Ok");
     }
-
-	protected override void OnAppearing()
-	{
-		base.OnAppearing();
-		if (!_vm.HasInternetAccess) DisplayAlert("No internet", "No internet access", "Ok");
-		else if (!_vm.HasMQTTAccess) DisplayAlert("No MQTT", "No MQTT access", "Ok");
-	}
 }
