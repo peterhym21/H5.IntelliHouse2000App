@@ -157,7 +157,7 @@ Then add a new view to the App with a service to get the new data, use the exsis
 
 # Contact
 - Peter Hymøller - peterhym21@gmail.com
-  - [Twitter](https://twitter.com/peter_hym)
+  - [![Twitter][twitter-shield-ptr]][twitter-url-ptr]
 - Nicolai Heuck - nicolaiheuck@gmail.com
 - Jan Andreasen - jan@tved.it
   - [![Twitter][twitter-shield]][twitter-url]
@@ -178,15 +178,15 @@ Project Link: [https://github.com/Thoroughbreed/H5_Embedded_Project](https://git
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [build-shield]: https://img.shields.io/badge/Build-passed-brightgreen.svg
 [test-shield]: https://img.shields.io/badge/Tests-passed-brightgreen.svg
-[contributors-shield]: https://img.shields.io/github/contributors/Thoroughbreed/H5_Embedded_Project.svg?style=badge
-[contributors-url]: https://github.com/Thoroughbreed/H5_Embedded_Project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Thoroughbreed/H5_Embedded_Project.svg?style=badge
-[forks-url]: https://github.com/Thoroughbreed/H5_Embedded_Project/network/members
-[issues-shield]: https://img.shields.io/github/issues/Thoroughbreed/H5_Embedded_Project.svg?style=badge
-[closed-shield]: https://img.shields.io/github/issues-closed/Thoroughbreed/H5_Embedded_Project?label=%20
-[issues-url]: https://github.com/Thoroughbreed/H5_Embedded_Project/issues
-[license-shield]: https://img.shields.io/github/license/Thoroughbreed/H5_Embedded_Project.svg?style=badge
-[license-url]: https://github.com/Thoroughbreed/H5_Embedded_Project/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/peterhym21/H5.IntelliHouse2000App.svg?style=badge
+[contributors-url]: https://github.com/peterhym21/H5.IntelliHouse2000App/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/peterhym21/H5.IntelliHouse2000App.svg?style=badge
+[forks-url]: https://github.com/peterhym21/H5.IntelliHouse2000App/network/members
+[issues-shield]: https://img.shields.io/github/issues/peterhym21/H5.IntelliHouse2000App.svg?style=badge
+[closed-shield]: https://img.shields.io/github/issues-closed/peterhym21/H5.IntelliHouse2000App?label=%20
+[issues-url]: https://github.com/peterhym21/H5.IntelliHouse2000App/issues
+[license-shield]: https://img.shields.io/github/license/peterhym21/H5.IntelliHouse2000App.svg?style=badge
+[license-url]: https://github.com/peterhym21/H5.IntelliHouse2000App/blob/master/LICENSE
 [twitter-shield]: https://img.shields.io/twitter/follow/andreasen_jan?style=social
 [twitter-url]: https://twitter.com/andreasen_jan
 [twitter-shield-ptr]: https://img.shields.io/twitter/follow/peter_hym?style=social
