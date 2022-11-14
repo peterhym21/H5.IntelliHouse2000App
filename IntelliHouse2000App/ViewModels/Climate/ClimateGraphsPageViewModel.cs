@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using IntelliHouse2000App.Models;
@@ -9,9 +10,9 @@ namespace IntelliHouse2000App.ViewModels;
 
 public partial class ClimateGraphsPageViewModel : BaseViewModel
 {
-    [ObservableProperty] public List<Measurements> kitchenValues = new();
-    [ObservableProperty] public List<Measurements> bedroomValues = new();
-    [ObservableProperty] public List<Measurements> livingroomValues = new();
+    [ObservableProperty] private ObservableCollection<Measurements> kitchenValues = new();
+    [ObservableProperty] private ObservableCollection<Measurements> bedroomValues = new();
+    [ObservableProperty] private ObservableCollection<Measurements> livingroomValues = new();
     [ObservableProperty] private Climate climate = new();
     private readonly IGenericRepository _repository;
     private readonly ClimateService _climateService;
@@ -31,7 +32,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         if (logs == null) GetOldValues();
         else
         {
-            KitchenValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            KitchenValues = new ObservableCollection<Measurements>(logs.OrderBy(t => t.Timestamp).ToList());            
             for (int i = 0; i < 10; i++)
             {
                 Preferences.Set($"KitchenTS{i}", logs[i].Timestamp);
@@ -50,7 +51,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         if (logs == null) GetOldValues();
         else
         {
-            LivingroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            LivingroomValues = new ObservableCollection<Measurements>(logs.OrderBy(t => t.Timestamp).ToList());            
             for (int i = 0; i < 10; i++)
             {
                 Preferences.Set($"LivingroomTS{i}", logs[i].Timestamp);
@@ -69,7 +70,7 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
         if (logs == null) GetOldValues();
         else
         {
-            BedroomValues = logs.OrderBy(t => t.Timestamp).ToList();            
+            BedroomValues = new ObservableCollection<Measurements>(logs.OrderBy(t => t.Timestamp).ToList());            
             for (int i = 0; i < 10; i++)
             {
                 Preferences.Set($"BedroomTS{i}", logs[i].Timestamp);
@@ -81,36 +82,43 @@ public partial class ClimateGraphsPageViewModel : BaseViewModel
 
     private void GetOldValues()
     {
-        KitchenValues = new List<Measurements>();
-        BedroomValues = new List<Measurements>();
-        LivingroomValues = new List<Measurements>();
-        
+        KitchenValues = new ObservableCollection<Measurements>();
+        BedroomValues = new ObservableCollection<Measurements>();
+        LivingroomValues = new ObservableCollection<Measurements>();
+        int j = 9;
         for (int i = 0; i < 10; i++)
         {
             KitchenValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"KitchenTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"KitchenTemp{i}", i * 10),
-                Humidity = Preferences.Get($"KitchenHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"KitchenHumidity{i}", j * 10)
             });
+            j--;
         }
+
+        j = 9;
         for (int i = 0; i < 10; i++)
         {
             BedroomValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"BedroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"BedroomTemp{i}", i * 10),
-                Humidity = Preferences.Get($"BedroomHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"BedroomHumidity{i}", j * 10)
             });
+            j--;
         }
+
+        j = 9;
         for (int i = 0; i < 10; i++)
         {
             LivingroomValues.Add(new Measurements()
             {
                 Timestamp = Preferences.Get($"LivingroomTS{i}", DateTime.Now.AddHours(-i)),
                 Temperature = Preferences.Get($"LivingroomTemp{i}", i * 10),
-                Humidity = Preferences.Get($"LivingroomHumidity{i}", (i+100)/10)
+                Humidity = Preferences.Get($"LivingroomHumidity{i}", j * 10)
             });
+            j--;
         }
     }
 
