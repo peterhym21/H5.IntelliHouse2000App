@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntelliHouse2000App.Views.BedroomGraphsPage"
+             xmlns:climate="clr-namespace:IntelliHouse2000App.ViewModels"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:DataType="climate:ClimateGraphsPageViewModel">
+    <StackLayout>
+            
+            <chart:SfCartesianChart BackgroundColor="LightGrey"
+                                    Title="Bedroom"
+                                    HeightRequest="350">
+    
+                <chart:SfCartesianChart.Legend>
+                    <chart:ChartLegend Placement="Top">
+                    </chart:ChartLegend>
+                </chart:SfCartesianChart.Legend>
+    
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis >
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Minimum="0" Maximum="100" />
+                </chart:SfCartesianChart.YAxes>
+    
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}"
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Temperature"
+                                  EnableAnimation="True"
+                                  Fill="Red"
+                                  Label="Temperature"/>
+                <chart:LineSeries ItemsSource="{Binding BedroomValues}"
+                                  XBindingPath="Timestamp"
+                                  YBindingPath="Humidity"
+                                  EnableAnimation="True"
+                                  Fill="Blue"
+                                  Label="Humidity"/>
+            </chart:SfCartesianChart>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="5">
+            <Frame Grid.Column="0" Padding="10">
+                <VerticalStackLayout Padding="10">
+                    <Label TextColor="Black" Text=" Set Humidity in %:" />
+                    <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetHumid}" />
+                    <Button Text="Set Humidity" 
+                        Command="{Binding SetHumidCommand}"
+                        CommandParameter="{Binding Climate}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="8"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="1">
+                <VerticalStackLayout Padding="10">
+                    <Label TextColor="Black" Text="Set Tempreture in °C:" />
+                    <Entry TextColor="Black" Placeholder="Enter Number here" Text="{Binding Climate.SetTemp}" />
+
+                    <Button Text="Set Temperture"
+                        Command="{Binding SetTempCommand}"
+                        CommandParameter="{Binding Climate}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="8"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

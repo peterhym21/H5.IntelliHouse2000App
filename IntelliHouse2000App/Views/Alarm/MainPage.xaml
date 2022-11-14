@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:IntelliHouse2000App.ViewModels"
+             x:DataType="viewModels:MainPageViewModel"
+             x:Class="IntelliHouse2000App.Views.MainPage">
+
+    <Grid RowDefinitions="1*, *, 2*, 2*" ColumnDefinitions="*, 2* ,*">
+        <Label Text="Welcome"
+               Grid.Column="1"
+               Margin="0,50,0,0"
+               HorizontalOptions="Center"
+               FontSize="30"></Label>
+
+        <Grid ColumnDefinitions="*, *, *"
+              Grid.Column="0" Grid.ColumnSpan="3"
+              ColumnSpacing="20" Margin="20,0"
+              Grid.Row="1">
+            <Button Text="Disarm"
+                    Grid.Column="0"
+                    IsEnabled="{Binding HasInternetAccess}"
+                    Command="{Binding DisarmCommand}"></Button>
+            <Button Text="Partially arm"
+                    Grid.Column="1"
+                    IsEnabled="{Binding HasInternetAccess}"
+                    Command="{Binding PartiallyArmCommand}"></Button>
+            <Button Text="Fully arm"
+                    Grid.Column="2"
+                    IsEnabled="{Binding HasInternetAccess}"
+                    Command="{Binding FullyArmCommand}"></Button>
+        </Grid>
+    </Grid>
+
+</ContentPage>

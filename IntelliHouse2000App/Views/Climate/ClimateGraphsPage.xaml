@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IntelliHouse2000App.Views.ClimateGraphsPage"
+             xmlns:views="clr-namespace:IntelliHouse2000App.Views">
+    <TabBar>
+        <Tab Title="Logs">
+            <ShellContent 
+                Title="Kitchen"
+                ContentTemplate="{DataTemplate views:KitchenGraphsPage}" />
+            <ShellContent 
+                Title="Bedroom"
+                ContentTemplate="{DataTemplate views:BedroomGraphsPage}" />
+            <ShellContent 
+                Title="Livingroom"
+                ContentTemplate="{DataTemplate views:LivingroomGraphsPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
