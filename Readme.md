@@ -14,7 +14,7 @@
 
 - [Case](#case)
 - [Requirements](#requirements)
-- - [Optionel Requirements](#Optionel Requirements)
+	- [Optionel Requirements](##Optionel-Requirements)
 - [Architecture diagram](#architecture-diagram)
 - [Roadmap](#roadmap)
 - [Summary and rundown](#summary-and-rundown)
@@ -118,7 +118,18 @@ Then add a new view to the App with a service to get the new data, use the exsis
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Libraries
-
+| Name                                              | Version           |
+| :------------------------------------------------ | :---------------- |
+| CommunityToolkit.Mvvm                             | 8.0.0             |
+| Microsoft.Maui.Dependencies                       | 6.0.547           |
+| Microsoft.Maui.Extensions                         | 6.0.547           |
+| Microsoft.Windows.SDK.BuildTools                  | 10.0.22000.194    |
+| MQTTnet                                           | 3.1.1             |
+| MQTTnet.Extensions.ManagedClient                  | 3.1.1             |
+| Polly                                             | 7.2.3             |
+| sqlite-net-pcl                                    | 1.8.116           |
+| Syncfusion.Maui.Charts                            | 20.3.56           |
+| System.Runtime.InteropServices.NFloat.Internal    | 6.0.1             |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
