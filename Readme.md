@@ -21,6 +21,7 @@
 - [Getting started](#getting-started)
 - [MessageCenter](#MessageCenter)
 - [MQTT Topics](#mqtt-topics)
+- [App Pages](#App-Pages)
 - [Libraries](#libraries)
 - [Components](#components)
 - [License](#license)
