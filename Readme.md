@@ -75,7 +75,13 @@ All of this is then displayed on the App for the **IntelliHouse2000**, **Intelli
 
 
 # Folder Structure
-![Folder structure]()
+
+![Folder structure](/Docs/FolderStructure.png)
+
+We use MVVM, Services, Repositories and Helpers 
+
+And uses FBF (Folder By Feature)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
