@@ -30,7 +30,7 @@ public partial class MainPage : ContentPage
     }
 	private void OnAlarmArmed(MainPageViewModel sender, bool success)
 	{
-        if (success) DisplayAlert("Alarm", "Alarm has been armed", "Ok", "Cancel");
+        if (success) DisplayAlert("Alarm", "Alarm has been armed", "Ok");
     }
 
 	protected override void OnAppearing()

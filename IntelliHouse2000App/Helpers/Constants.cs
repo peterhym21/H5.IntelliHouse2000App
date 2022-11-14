@@ -4,7 +4,7 @@ namespace IntelliHouse2000App;
 
 public static class Constants
 {
-    private const string BaseMqttUrl = "server.tved.it";
+    private const string BaseMqttUrl = "serve.tved.it";
     private const string BaseApiUrl = "mqtt-api.tved.it";
     private const string Schema = "https";
     private const string ApiPort = "443";
