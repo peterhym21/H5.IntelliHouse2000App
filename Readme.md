@@ -139,11 +139,11 @@ Then add a new view to the App with a service to get the new data, use the exsis
 
 # App Pages
 
-![Home Page](/Docs/HomePageApp.png =250)
+![Home Page](/Docs/HomePageApp.png =250x)
 
-![Log Page](/Docs/LogPageApp.png =250)
+![Log Page](/Docs/LogPageApp.png =250x)
 
-![Home Page](/Docs/ClimatePageApp.png =250)
+![Home Page](/Docs/ClimatePageApp.png =250x)
 
 
 # License
