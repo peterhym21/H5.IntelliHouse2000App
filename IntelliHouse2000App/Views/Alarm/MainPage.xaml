@@ -18,15 +18,15 @@
               Grid.Row="1">
             <Button Text="Disarm"
                     Grid.Column="0"
-                    IsEnabled="{Binding HasMQTTAccess}"
+                    IsEnabled="{Binding HasInternetAccess}"
                     Command="{Binding DisarmCommand}"></Button>
             <Button Text="Partially arm"
                     Grid.Column="1"
-                    IsEnabled="{Binding HasMQTTAccess}"
+                    IsEnabled="{Binding HasInternetAccess}"
                     Command="{Binding PartiallyArmCommand}"></Button>
             <Button Text="Fully arm"
                     Grid.Column="2"
-                    IsEnabled="{Binding HasMQTTAccess}"
+                    IsEnabled="{Binding HasInternetAccess}"
                     Command="{Binding FullyArmCommand}"></Button>
         </Grid>
     </Grid>

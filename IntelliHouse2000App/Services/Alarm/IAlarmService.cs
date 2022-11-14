@@ -2,5 +2,5 @@
 
 public interface IAlarmService
 {
-    Task<bool> SetArmedAsync(ArmedState state);
+    void SetArmed(ArmedState state);
 }
