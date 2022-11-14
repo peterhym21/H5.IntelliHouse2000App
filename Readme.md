@@ -48,7 +48,7 @@ Build a APP for the Intelligent Hous
 - [X] Er robust overfor ustabil netforbindelse.
 - [x] Projektet afleveres i Github med en god Readme-fil og præsenteres for klassen. Readme-filen markerer også hvilke mål, der er nået.
 
-## Optionel Requirements
+# Optionel Requirements
 
 - [x] Mulighed for at kunne vælge forskellige målesessions, f.eks. svarende til forskellige rum i huset.
 - [x] Man kan også ønske sig en alarm, der adviserer om at temperaturen er kommet udenfor en given grænse.
