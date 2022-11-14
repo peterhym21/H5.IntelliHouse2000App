@@ -40,17 +40,17 @@ Build a APP for the [Intelligent House](https://github.com/Thoroughbreed/H5_Embe
 
 
 # Requirements
-- [x] Kan vise aktuel (seneste måling) af temperatur og humidity og evt. andre informationer.
-- [x] Kan vise en graf over målingerne, hvor man kan vælge mellem seneste time, dag og uge.
-- [x] Der skal være en knap, der via MQTT kan aktivere en servo (og simulere at man åbner et vindue eller tænder for ventilationen).
-- [x] App'en skal opbygges med MVVM design pattern og Dependency Injection.
-- [x] Kan vise seneste data, hvis nettet afbrydes. 
-- [X] Er robust overfor ustabil netforbindelse.
-- [x] Projektet afleveres i Github med en god Readme-fil og præsenteres for klassen. Readme-filen markerer også hvilke mål, der er nået.
+- [x] Can show current (latest measurement) of temperature and humidity and possibly other information.
+- [x] Can show a graph of the measurements, where you can choose between the last hour, day and week.
+- [x] There must be a button that can activate a servo via MQTT (and simulate opening a window or turning on the ventilation).
+- [x] The app must be built with the MVVM design pattern and Dependency Injection.
+- [x] Can display recent data if the network is interrupted.
+- [X] Is robust against unstable network connection.
+- [x] The project is submitted in Github with a good Readme file and presented to the class. The readme file also marks which objectives have been met.
 
 ## Optionel Requirements
-- [x] Mulighed for at kunne vælge forskellige målesessions, f.eks. svarende til forskellige rum i huset.
-- [x] Man kan også ønske sig en alarm, der adviserer om at temperaturen er kommet udenfor en given grænse.
+- [x] Possibility to select different measurement sessions, e.g. corresponding to different rooms in the house.
+- [x] You can also wish for an alarm that notifies you that the temperature has gone beyond a given limit.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
