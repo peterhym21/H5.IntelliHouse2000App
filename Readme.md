@@ -27,6 +27,7 @@
 - [Contact](#contact)
 </details>
 
+
 # Case
 Build a APP for the Intelligent Hous 
 
@@ -36,8 +37,8 @@ Build a APP for the Intelligent Hous
 
 - [Intelligent House](https://github.com/Thoroughbreed/H5_Embedded_Project)
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 # Requirements
 - [x] Kan vise aktuel (seneste måling) af temperatur og humidity og evt. andre informationer.
@@ -49,14 +50,16 @@ Build a APP for the Intelligent Hous
 - [x] Projektet afleveres i Github med en god Readme-fil og præsenteres for klassen. Readme-filen markerer også hvilke mål, der er nået.
 
 ## Optionel Requirements
-
 - [x] Mulighed for at kunne vælge forskellige målesessions, f.eks. svarende til forskellige rum i huset.
 - [x] Man kan også ønske sig en alarm, der adviserer om at temperaturen er kommet udenfor en given grænse.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 # Architecture diagram
 ![architecture diagram](/Docs/Architecture_Diagram.drawio.png)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 #  Summary and rundown
@@ -69,6 +72,7 @@ All of this is then displayed on the App for the **IntelliHouse2000**, **Intelli
 > If the humidity in the house rises rapidly, the appropriate window will be opened incrementally until the sensor detects a drop in humidity. As an extra function<sup>2</sup> you can add weather sensor as well, so the window *doesn't* open if the humidity outside is higher than inside, or it rains.
 
 > No matter what action have been taken (open doors, windows etc.) those will automatically close when the alarm system is armed. This happens with both perimeter and full arm.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -98,9 +102,7 @@ Then add a new view to the App with a service to get the new data, use the exsis
 | Set-Humid								| Pub/Sub	|
 | Set-Temp								| Pub/Sub	|
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 # MQTT Topics
@@ -116,6 +118,7 @@ Then add a new view to the App with a service to get the new data, use the exsis
 | home/log/#                           | External | Sub     |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 # Libraries
 | Name                                              | Version           |
@@ -134,13 +137,14 @@ Then add a new view to the App with a service to get the new data, use the exsis
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 # License
 * Hardware: CC-BY-LA (Creative Commons)
 * API: GPLv3
 * Frontend: GPLv3
 * Mobile: GPLv3
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 # Contact
 - Peter Hymøller - peterhym21@gmail.com
@@ -150,7 +154,9 @@ Then add a new view to the App with a service to get the new data, use the exsis
   - [![Twitter][twitter-shield]][twitter-url]
 
 Project Link: [https://github.com/Thoroughbreed/H5_Embedded_Project](https://github.com/Thoroughbreed/H5_Embedded_Project)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <sup>1</sup> - Informs the user via mobile app over the MQTT protocol
 
