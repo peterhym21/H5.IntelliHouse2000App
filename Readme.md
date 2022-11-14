@@ -74,19 +74,7 @@ All of this is then displayed on the App for the **IntelliHouse2000**, **Intelli
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-# Getting started
-To add a device go to the appropriate section (e.g. Climate) and locate the header-file (ends with .h) - there you can see the pin-defines, where all you have to do it add your new device to that list like this: `#define NewSensor 8` where *NewSensor* is the "friendly name" of your sensor, and *8* is the pin-number you're using on the board.
-Next thing is to "start" the sensor `DHT newDHT(NewSensor, Type)`where *newDHT* is the name of the object and *Type* is the type of sensor (e.g. DHT11).
-
-Then all you do is to add the check to the source code
-```
-temperature2 = newDHT.readTemperature();
-humidity2 = newDHT.readHumidity();
-```
-
-Make sure to read the setup for each device, some communicate by one-wire (like the DHT11), some use SPI *(Serial Peripheral Interface)*, some use I<sup>2</sup>C *(Called **Wire** in Arduino)* and others use analog input.
-
-Then add a new view to the App with a service to get the new data, use the exsisting views and services as a template for this.
+# Folder Struckture
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
