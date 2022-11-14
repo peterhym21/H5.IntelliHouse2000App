@@ -1,8 +1,11 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace IntelliHouse2000App.Models;
 
-public class Measurements
+public partial class Measurements : ObservableObject
 {
-    public double Temperature { get; set; }
-    public double Humidity { get; set; }
-    public DateTime Timestamp { get; set; } = DateTime.Now;
+    [ObservableProperty] private double temperature;
+
+    [ObservableProperty] private double humidity;
+    [ObservableProperty] private DateTime timestamp = DateTime.Now;
 }
