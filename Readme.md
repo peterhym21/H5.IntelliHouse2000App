@@ -141,11 +141,11 @@ Then add a new view to the App with a service to get the new data, use the exsis
 
 <img src="/Docs/HomePageApp.png" width="50%"/>
 
-![Home Page](/Docs/HomePageApp.png)
+<img src="/Docs/LogPageApp.png" width="50%"/>
 
-![Log Page](/Docs/LogPageApp.png)
+<img src="/Docs/ClimatePageApp.png" width="50%"/>
 
-![Home Page](/Docs/ClimatePageApp.png)
+
 
 
 # License
