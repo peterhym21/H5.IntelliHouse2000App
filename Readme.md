@@ -87,20 +87,28 @@ And uses FBF (Folder By Feature)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-# API Calls
+# API Endpoints
+**OPS:** Full api documentaiton can be found on [swagger](https://mqtt-api.tved.it/swagger/index.html)
 
-Bais URL : https://mqtt-api.tved.it/
+Base URL : https://mqtt-api.tved.it/
 
-- /
-- /all
-- /info
-- /debug
-- /system
-- /critical
-- /kitchen
-- /bedroom
-- /livingroom
-- /airq
+| Method | Uri           | Description                                                            | Parameters     | Parameter formats                    |
+| :----- | :------------ | :--------------------------------------------------------------------- | :------------- | :----------------------------------- |
+| GET    | /             | Smoke test                                                             |                |                                      |
+| GET    | /all          | Get last 50 logs                                                       |                |                                      |
+| GET    | /info         | Get last 50 logs with log level info                                   |                |                                      |
+| GET    | /debug        | Get last 50 logs with log level debug                                  |                |                                      |
+| GET    | /system       | Get last 50 logs with log level system                                 |                |                                      |
+| GET    | /critical     | Get last 50 logs with log level critical                               |                |                                      |
+| GET    | /kitchen      | Get all temperature and humidity readings from the kitchen since ts    | ts (timestamp) | Datetime format: yyyy-MM-dd HH:mm:ss |
+| GET    | /kitchen/1    | Get last temperature and humidity reading from the kitchen             |                |                                      |
+| GET    | /bedroom      | Get all temperature and humidity readings from the bedroom since ts    | ts (timestamp) | Datetime format: yyyy-MM-dd HH:mm:ss |
+| GET    | /bedroom/1    | Get last temperature and humidity reading from the bedroom             |                |                                      |
+| GET    | /livingroom   | Get all temperature and humidity readings from the livingroom since ts | ts (timestamp) | Datetime format: yyyy-MM-dd HH:mm:ss |
+| GET    | /livingroom/1 | Get last temperature and humidity reading from the livingroom          |                |                                      |
+| GET    | /airq         | Get all air quality readings since ts                                  | ts (timestamp) | Datetime format: yyyy-MM-dd HH:mm:ss |
+| GET    | /airq/1       | Get last air quality reading                                           |                |                                      |
+
 
 
 # MessageCenter
